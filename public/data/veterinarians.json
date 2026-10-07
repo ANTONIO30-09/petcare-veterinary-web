@@ -1,0 +1,57 @@
+[
+  {
+    "id": "vet-001",
+    "name": "Dra. María Fernández",
+    "title": "Médica Veterinaria Zootecnista",
+    "specialty": "med-general",
+    "bio": "Especialista en medicina general con amplia experiencia en consulta preventiva y seguimiento clínico de pequeñas especies.",
+    "photo": "/assets/images/veterinarians/vet-001.jpg",
+    "email": "maria.fernandez@petcare.example",
+    "phone": "+591 700 10001",
+    "yearsExperience": 12
+  },
+  {
+    "id": "vet-002",
+    "name": "Dr. Carlos Rojas",
+    "title": "Cardiólogo Veterinario",
+    "specialty": "cardiologia",
+    "bio": "Cardiólogo con formación en ecocardiografía y manejo de insuficiencia cardíaca en caninos y felinos.",
+    "photo": "/assets/images/veterinarians/vet-002.jpg",
+    "email": "carlos.rojas@petcare.example",
+    "phone": "+591 700 10002",
+    "yearsExperience": 15
+  },
+  {
+    "id": "vet-003",
+    "name": "Dra. Lucía Méndez",
+    "title": "Dermatóloga Veterinaria",
+    "specialty": "dermatologia",
+    "bio": "Especialista en dermatología clínica, alergias alimentarias y manejo de dermatitis crónicas.",
+    "photo": "/assets/images/veterinarians/vet-003.jpg",
+    "email": "lucia.mendez@petcare.example",
+    "phone": "+591 700 10003",
+    "yearsExperience": 9
+  },
+  {
+    "id": "vet-004",
+    "name": "Dr. Jorge Salazar",
+    "title": "Traumatólogo Veterinario",
+    "specialty": "traumatologia",
+    "bio": "Cirujano ortopédico con experiencia en osteosíntesis, artroscopia y rehabilitación postquirúrgica.",
+    "photo": "/assets/images/veterinarians/vet-004.jpg",
+    "email": "jorge.salazar@petcare.example",
+    "phone": "+591 700 10004",
+    "yearsExperience": 14
+  },
+  {
+    "id": "vet-005",
+    "name": "Dra. Andrea Quispe",
+    "title": "Odontóloga Veterinaria",
+    "specialty": "odontologia",
+    "bio": "Odontóloga veterinaria enfocada en prevención, tratamiento periodontal y cirugía oral.",
+    "photo": "/assets/images/veterinarians/vet-005.jpg",
+    "email": "andrea.quispe@petcare.example",
+    "phone": "+591 700 10005",
+    "yearsExperience": 7
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "med-general",
+    "name": "Medicina General",
+    "description": "Atención clínica integral para el diagnóstico, tratamiento y seguimiento de la salud general de tu mascota.",
+    "image": "/assets/images/specialties/medicina-general.jpg",
+    "veterinarianIds": ["vet-001"]
+  },
+  {
+    "id": "cardiologia",
+    "name": "Cardiología",
+    "description": "Evaluación cardiovascular, ecocardiografía y manejo de enfermedades del corazón en perros y gatos.",
+    "image": "/assets/images/specialties/cardiologia.jpg",
+    "veterinarianIds": ["vet-002"]
+  },
+  {
+    "id": "dermatologia",
+    "name": "Dermatología",
+    "description": "Diagnóstico y tratamiento de afecciones de la piel, alergias, hongos y problemas dermatológicos crónicos.",
+    "image": "/assets/images/specialties/dermatologia.jpg",
+    "veterinarianIds": ["vet-003"]
+  },
+  {
+    "id": "traumatologia",
+    "name": "Traumatología",
+    "description": "Atención de fracturas, lesiones musculares y articulares, junto con rehabilitación ortopédica.",
+    "image": "/assets/images/specialties/traumatologia.jpg",
+    "veterinarianIds": ["vet-004"]
+  },
+  {
+    "id": "oftalmologia",
+    "name": "Oftalmología",
+    "description": "Evaluación ocular, tratamiento de cataratas, úlceras corneales y patologías del sistema visual.",
+    "image": "/assets/images/specialties/oftalmologia.jpg",
+    "veterinarianIds": ["vet-002", "vet-004"]
+  },
+  {
+    "id": "odontologia",
+    "name": "Odontología Veterinaria",
+    "description": "Cuidado dental avanzado: limpieza, extracción, endodoncia y prevención de enfermedad periodontal.",
+    "image": "/assets/images/specialties/odontologia.jpg",
+    "veterinarianIds": ["vet-005"]
+  }
+]

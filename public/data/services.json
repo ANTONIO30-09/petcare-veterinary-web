@@ -1,0 +1,98 @@
+[
+  {
+    "id": "srv-consulta-general",
+    "name": "Consulta General",
+    "description": "Evaluación clínica completa del paciente, historial, examen físico y plan de tratamiento personalizado.",
+    "icon": "stethoscope",
+    "image": "/assets/images/services/consulta-general.jpg",
+    "price": 80,
+    "currency": "BOB",
+    "duration": 30,
+    "category": "preventivo",
+    "available": true
+  },
+  {
+    "id": "srv-vacunacion",
+    "name": "Vacunación",
+    "description": "Aplicación de vacunas esenciales (rabia, polivalente, etc.) con carné sanitario y control de calendario.",
+    "icon": "vaccines",
+    "image": "/assets/images/services/vacunacion.jpg",
+    "price": 120,
+    "currency": "BOB",
+    "duration": 20,
+    "category": "preventivo",
+    "available": true
+  },
+  {
+    "id": "srv-desparasitacion",
+    "name": "Desparasitación",
+    "description": "Tratamiento antiparasitario interno y externo adaptado al peso y especie del paciente.",
+    "icon": "bug_report",
+    "image": "/assets/images/services/desparasitacion.jpg",
+    "price": 60,
+    "currency": "BOB",
+    "duration": 20,
+    "category": "preventivo",
+    "available": true
+  },
+  {
+    "id": "srv-esterilizacion",
+    "name": "Esterilización",
+    "description": "Procedimiento quirúrgico de esterilización (macho/hembra) con anestesia controlada y monitoreo postoperatorio.",
+    "icon": "medical_services",
+    "image": "/assets/images/services/esterilizacion.jpg",
+    "price": 350,
+    "currency": "BOB",
+    "duration": 90,
+    "category": "cirugia",
+    "available": true
+  },
+  {
+    "id": "srv-cirugia-general",
+    "name": "Cirugía General",
+    "description": "Intervenciones quirúrgicas de tejidos blandos y procedimientos menores con equipo especializado.",
+    "icon": "healing",
+    "image": "/assets/images/services/cirugia-general.jpg",
+    "price": 500,
+    "currency": "BOB",
+    "duration": 120,
+    "category": "cirugia",
+    "available": true
+  },
+  {
+    "id": "srv-odontologia",
+    "name": "Odontología Veterinaria",
+    "description": "Limpieza dental, extracción de piezas dañadas y tratamiento de enfermedad periodontal.",
+    "icon": "dentistry",
+    "image": "/assets/images/services/odontologia.jpg",
+    "price": 250,
+    "currency": "BOB",
+    "duration": 60,
+    "category": "preventivo",
+    "available": true
+  },
+  {
+    "id": "srv-laboratorio",
+    "name": "Laboratorio Clínico",
+    "description": "Análisis de sangre, orina, heces y pruebas específicas para diagnóstico y seguimiento clínico.",
+    "icon": "biotech",
+    "image": "/assets/images/services/laboratorio.jpg",
+    "price": 150,
+    "currency": "BOB",
+    "duration": 45,
+    "category": "diagnostico",
+    "available": true
+  },
+  {
+    "id": "srv-imagenologia",
+    "name": "Radiografía y Ecografía",
+    "description": "Estudios de imagen para diagnóstico preciso de lesiones óseas, tejidos blandos y órganos internos.",
+    "icon": "radiology",
+    "image": "/assets/images/services/imagenologia.jpg",
+    "price": 200,
+    "currency": "BOB",
+    "duration": 30,
+    "category": "diagnostico",
+    "available": true
+  }
+]

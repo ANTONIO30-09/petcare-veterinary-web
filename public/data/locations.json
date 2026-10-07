@@ -1,0 +1,29 @@
+[
+  {
+    "id": "loc-central",
+    "name": "Sucursal Central",
+    "address": "Av. Monseñor Rivero #250, Santa Cruz de la Sierra, Bolivia",
+    "phone": "+591 3 333 1000",
+    "schedule": "Lun–Sáb 08:00–20:00",
+    "map": "https://maps.google.com/?q=-17.7833,-63.1821",
+    "coordinates": { "lat": -17.7833, "lng": -63.1821 }
+  },
+  {
+    "id": "loc-norte",
+    "name": "Sucursal Norte",
+    "address": "Av. Cristo Redentor #3100, Santa Cruz de la Sierra, Bolivia",
+    "phone": "+591 3 333 2000",
+    "schedule": "Lun–Sáb 09:00–19:00",
+    "map": "https://maps.google.com/?q=-17.7580,-63.1740",
+    "coordinates": { "lat": -17.7580, "lng": -63.1740 }
+  },
+  {
+    "id": "loc-sur",
+    "name": "Sucursal Sur",
+    "address": "Av. Santos Dumont #450, Santa Cruz de la Sierra, Bolivia",
+    "phone": "+591 3 333 3000",
+    "schedule": "Lun–Dom 08:00–21:00",
+    "map": "https://maps.google.com/?q=-17.8060,-63.1760",
+    "coordinates": { "lat": -17.8060, "lng": -63.1760 }
+  }
+]
