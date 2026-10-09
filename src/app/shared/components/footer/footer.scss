@@ -1,0 +1,26 @@
+.footer {
+  background: #0f172a;
+  color: #e5e7eb;
+  margin-top: 4rem;
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+  }
+
+  &__brand {
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__copy {
+    margin: 0;
+    color: #9ca3af;
+  }
+}

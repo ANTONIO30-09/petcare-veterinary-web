@@ -1,0 +1,56 @@
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #0f766e;
+    text-decoration: none;
+  }
+
+  &__brand-mark {
+    font-size: 1.5rem;
+  }
+
+  &__links {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+
+    a {
+      color: #374151;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.15s ease;
+
+      &:hover,
+      &:focus-visible {
+        color: #0f766e;
+      }
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .navbar__links {
+    display: none;
+  }
+}

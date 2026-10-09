@@ -1,0 +1,29 @@
+<section class="hero">
+  <div class="hero__inner">
+    <h1>Bienvenido a <span>PetCare</span></h1>
+    <p>Cuidamos a tus mascotas con profesionales especializados y tecnología moderna.</p>
+  </div>
+</section>
+
+<section class="services">
+  <div class="services__inner">
+    <h2>Nuestros servicios</h2>
+
+    @if (services().length === 0) {
+      <p class="services__empty">Cargando servicios…</p>
+    } @else {
+      <div class="services__grid">
+        @for (svc of services(); track svc.id) {
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">{{ svc.icon }}</div>
+            <h3 class="service-card__name">{{ svc.name }}</h3>
+            <p class="service-card__desc">{{ svc.description }}</p>
+            <p class="service-card__meta">
+              <strong>{{ svc.price }} {{ svc.currency }}</strong> · {{ svc.duration }} min
+            </p>
+          </article>
+        }
+      </div>
+    }
+  </div>
+</section>
