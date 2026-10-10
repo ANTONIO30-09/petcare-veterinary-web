@@ -12,14 +12,25 @@
   <section class="chatbot-panel" role="dialog" aria-label="Chat de PetCare">
     <header class="chatbot-panel__header">
       <span class="chatbot-panel__title">PetBot 🐾</span>
-      <button
-        type="button"
-        class="chatbot-panel__close"
-        aria-label="Cerrar chat"
-        (click)="toggle()"
-      >
-        ✕
-      </button>
+      <div class="chatbot-panel__actions">
+        <a
+          class="chatbot-panel__expand"
+          routerLink="/chatbot"
+          aria-label="Abrir versión completa del chat"
+          title="Abrir versión completa"
+          (click)="toggle()"
+        >
+          <span class="material-symbols-outlined">open_in_full</span>
+        </a>
+        <button
+          type="button"
+          class="chatbot-panel__close"
+          aria-label="Cerrar chat"
+          (click)="toggle()"
+        >
+          ✕
+        </button>
+      </div>
     </header>
 
     <div #messageList class="chatbot-panel__messages">

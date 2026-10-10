@@ -83,6 +83,44 @@
     }
   }
 
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--pc-space-2);
+  }
+
+  &__icon-link {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--pc-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pc-green-800);
+    text-decoration: none;
+    transition: background var(--pc-transition-fast), color var(--pc-transition-fast);
+
+    .material-symbols-outlined {
+      font-size: 1.25rem;
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+
+    &:hover {
+      background: var(--pc-green-100);
+      color: var(--pc-green-950);
+    }
+
+    &.active {
+      background: var(--pc-green-700);
+      color: var(--pc-cream-50);
+
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      }
+    }
+  }
+
   &__cta {
     padding: 0.55rem 1.15rem;
     border-radius: var(--pc-radius-full);

@@ -1,6 +1,22 @@
 <footer class="footer">
   <div class="footer__inner">
     <p class="footer__brand">🐾 PetCare Veterinary</p>
+
+    <nav class="footer__nav" aria-label="Enlaces del pie">
+      <a class="footer__nav-link" routerLink="/chatbot">
+        <span class="material-symbols-outlined" aria-hidden="true">forum</span>
+        Asistente virtual
+      </a>
+      <a class="footer__nav-link" routerLink="/contacto">
+        <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+        Contacto
+      </a>
+      <a class="footer__nav-link" routerLink="/ubicaciones">
+        <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+        Sucursales
+      </a>
+    </nav>
+
     <p class="footer__copy">© {{ year }} PetCare Veterinary. Todos los derechos reservados.</p>
   </div>
 </footer>

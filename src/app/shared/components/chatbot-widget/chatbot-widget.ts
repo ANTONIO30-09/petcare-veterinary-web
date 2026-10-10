@@ -6,6 +6,7 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 import { ChatbotService } from '../../../core/services/chatbot.service';
 
@@ -15,12 +16,9 @@ export interface ChatMessage {
   text: string;
 }
 
-/**
- * Widget flotante del chatbot simulado de PetCare.
- * Sin backend: delega en ChatbotService para generar respuestas.
- */
 @Component({
   selector: 'app-chatbot-widget',
+  imports: [RouterLink],
   templateUrl: './chatbot-widget.html',
   styleUrl: './chatbot-widget.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -49,7 +47,6 @@ export class ChatbotWidget {
     this.scrollToBottom();
 
     const reply = this.chatbot.responder(text);
-    // Pequeña demora para simular "escribiendo…"
     setTimeout(() => {
       this.appendMessage('bot', reply);
       this.scrollToBottom();
