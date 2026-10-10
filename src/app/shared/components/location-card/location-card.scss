@@ -4,62 +4,72 @@
 }
 
 .location-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.75rem;
-  padding: 1.25rem;
+  background: var(--pc-peach-100);
+  border: 1px solid transparent;
+  border-radius: var(--pc-radius-lg);
+  padding: var(--pc-space-6);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--pc-space-3);
   height: 100%;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: transform var(--pc-transition), box-shadow var(--pc-transition), border-color var(--pc-transition);
 
   &:hover {
-    box-shadow: 0 10px 25px rgba(15, 118, 110, 0.1);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    box-shadow: var(--pc-shadow-lg);
+    border-color: var(--pc-coral-400);
   }
 
   &__header {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.25rem;
+    gap: var(--pc-space-2);
   }
 
   &__pin {
-    font-size: 1.25rem;
+    font-size: var(--pc-fs-xl);
   }
 
   &__name {
+    font-family: var(--pc-font-display);
+    font-size: var(--pc-fs-xl);
+    font-weight: 700;
+    color: var(--pc-navy-900);
     margin: 0;
-    font-size: 1.1rem;
-    color: #0f172a;
+    letter-spacing: -0.01em;
   }
 
   &__address {
     margin: 0;
-    color: #4b5563;
-    font-size: 0.9rem;
-    line-height: 1.5;
+    color: var(--pc-navy-700);
+    font-size: var(--pc-fs-sm);
+    line-height: 1.55;
   }
 
   &__meta {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: var(--pc-fs-sm);
   }
 
   &__phone {
-    color: #0f766e;
+    color: var(--pc-coral-500);
+    font-weight: 600;
     text-decoration: none;
 
     &:hover {
+      color: var(--pc-coral-600);
       text-decoration: underline;
     }
   }
 
   &__schedule {
     margin: 0;
-    color: #6b7280;
-    font-size: 0.85rem;
+    background: rgba(233, 196, 106, 0.35);
+    color: var(--pc-navy-900);
+    padding: var(--pc-space-2) var(--pc-space-3);
+    border-radius: var(--pc-radius-sm);
+    font-size: var(--pc-fs-xs);
+    font-weight: 600;
+    text-align: center;
   }
 }
