@@ -3,10 +3,9 @@ import { ChangeDetectionStrategy, Component, computed, input, signal } from '@an
 import { Veterinarian } from '../../../core/models/veterinarian.model';
 
 /**
- * Tarjeta de presentación profesional de un veterinario.
- * - Foto a sangre completa (aspect 4:5) con object-position top.
- * - Fallback automático a iniciales si la foto falla o no existe.
- * - `specialtyName` opcional: nombre legible de la especialidad.
+ * Tarjeta de veterinario con dos variantes:
+ * - `full` (por defecto): tarjeta de presentación con foto a sangre completa.
+ * - `minimal`: avatar con iniciales, sin foto. Pensada para la Home.
  */
 @Component({
   selector: 'app-veterinarian-card',
@@ -17,8 +16,11 @@ import { Veterinarian } from '../../../core/models/veterinarian.model';
 export class VeterinarianCard {
   readonly veterinarian = input.required<Veterinarian>();
   readonly specialtyName = input<string>('');
+  readonly variant = input<'full' | 'minimal'>('full');
 
-  /** True cuando la imagen falló → mostramos iniciales. */
+  protected readonly isMinimal = computed(() => this.variant() === 'minimal');
+
+  /** True cuando la imagen falló → mostramos iniciales (solo en full). */
   protected readonly photoFailed = signal(false);
 
   protected readonly showPhoto = computed(

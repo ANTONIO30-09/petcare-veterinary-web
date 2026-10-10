@@ -1,4 +1,274 @@
-<section class="page">
-  <h1>Contacto</h1>
-  <p>Formulario de contacto y datos de atención — próximamente.</p>
+<!-- ============ Mini-hero ============ -->
+<header class="page-hero">
+  <div class="page-hero__inner">
+    <a class="page-hero__back" routerLink="/">
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+      Volver al inicio
+    </a>
+
+    <div class="page-hero__heading">
+      <span class="page-hero__kicker">Contacto</span>
+      <h1 class="page-hero__title">
+        Estamos para <em>ayudarte</em>
+      </h1>
+      <p class="page-hero__subtitle">
+        Cuéntanos sobre tu mascota y te responderemos lo antes posible.
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ Contenido ============ -->
+<section class="contact">
+  <div class="contact__inner">
+
+    <!-- ========== Formulario ========== -->
+    <div class="contact__form-col">
+      @if (!submitted()) {
+        <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+          <header class="form__head">
+            <h2 class="form__title">Envíanos un mensaje</h2>
+            <p class="form__hint">
+              Los campos con <span aria-hidden="true">*</span> son obligatorios.
+            </p>
+          </header>
+
+          <!-- Nombre -->
+          <div class="field" [class.field--error]="showError('name')">
+            <label class="field__label" for="contact-name">
+              Nombre completo <span aria-hidden="true">*</span>
+            </label>
+            <div class="field__control">
+              <span class="material-symbols-outlined field__icon" aria-hidden="true">person</span>
+              <input
+                id="contact-name"
+                type="text"
+                class="field__input"
+                formControlName="name"
+                placeholder="Ej: Ana Pérez"
+                autocomplete="name"
+              />
+            </div>
+            @if (showError('name')) {
+              <p class="field__msg">
+                @if (controls.name.errors?.['required']) { El nombre es obligatorio. }
+                @else if (controls.name.errors?.['minlength']) { Mínimo 2 caracteres. }
+              </p>
+            }
+          </div>
+
+          <!-- Email -->
+          <div class="field" [class.field--error]="showError('email')">
+            <label class="field__label" for="contact-email">
+              Correo electrónico <span aria-hidden="true">*</span>
+            </label>
+            <div class="field__control">
+              <span class="material-symbols-outlined field__icon" aria-hidden="true">mail</span>
+              <input
+                id="contact-email"
+                type="email"
+                class="field__input"
+                formControlName="email"
+                placeholder="tu@correo.com"
+                autocomplete="email"
+              />
+            </div>
+            @if (showError('email')) {
+              <p class="field__msg">
+                @if (controls.email.errors?.['required']) { El correo es obligatorio. }
+                @else if (controls.email.errors?.['email']) { Ingresa un correo válido. }
+              </p>
+            }
+          </div>
+
+          <!-- Teléfono -->
+          <div class="field" [class.field--error]="showError('phone')">
+            <label class="field__label" for="contact-phone">Teléfono</label>
+            <div class="field__control">
+              <span class="material-symbols-outlined field__icon" aria-hidden="true">call</span>
+              <input
+                id="contact-phone"
+                type="tel"
+                class="field__input"
+                formControlName="phone"
+                placeholder="+591 700 00000"
+                autocomplete="tel"
+              />
+            </div>
+            @if (showError('phone')) {
+              <p class="field__msg">Ingresa un número válido.</p>
+            }
+          </div>
+
+          <!-- Row: nombre mascota + tipo -->
+          <div class="field-row">
+            <div class="field">
+              <label class="field__label" for="contact-pet-name">Nombre de tu mascota</label>
+              <div class="field__control">
+                <span class="material-symbols-outlined field__icon" aria-hidden="true">pets</span>
+                <input
+                  id="contact-pet-name"
+                  type="text"
+                  class="field__input"
+                  formControlName="petName"
+                  placeholder="Ej: Rocky"
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="contact-pet-type">Tipo</label>
+              <div class="field__control">
+                <span class="material-symbols-outlined field__icon" aria-hidden="true">category</span>
+                <select
+                  id="contact-pet-type"
+                  class="field__input field__input--select"
+                  formControlName="petType"
+                >
+                  <option value="">Selecciona…</option>
+                  <option value="perro">Perro</option>
+                  <option value="gato">Gato</option>
+                  <option value="ave">Ave</option>
+                  <option value="roedor">Roedor</option>
+                  <option value="reptil">Reptil</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mensaje -->
+          <div class="field" [class.field--error]="showError('message')">
+            <label class="field__label" for="contact-message">
+              Mensaje <span aria-hidden="true">*</span>
+            </label>
+            <div class="field__control field__control--textarea">
+              <span class="material-symbols-outlined field__icon" aria-hidden="true">chat</span>
+              <textarea
+                id="contact-message"
+                class="field__input field__input--textarea"
+                formControlName="message"
+                rows="5"
+                placeholder="Cuéntanos qué necesita tu mascota…"
+              ></textarea>
+            </div>
+            @if (showError('message')) {
+              <p class="field__msg">
+                @if (controls.message.errors?.['required']) { El mensaje es obligatorio. }
+                @else if (controls.message.errors?.['minlength']) { Mínimo 10 caracteres. }
+              </p>
+            }
+          </div>
+
+          <footer class="form__foot">
+            <button type="submit" class="form__submit">
+              <span class="material-symbols-outlined" aria-hidden="true">send</span>
+              Enviar mensaje
+            </button>
+            <button
+              type="button"
+              class="form__reset"
+              (click)="form.reset()"
+              [disabled]="form.pristine"
+            >
+              Limpiar
+            </button>
+          </footer>
+        </form>
+      } @else {
+        <!-- Estado de éxito -->
+        <div class="success" role="status">
+          <span class="success__icon material-symbols-outlined" aria-hidden="true">
+            check_circle
+          </span>
+          <h2 class="success__title">¡Mensaje enviado!</h2>
+          <p class="success__text">
+            Gracias {{ lastContactName() }}, hemos recibido tu mensaje y te responderemos
+            a la brevedad.
+          </p>
+          <button type="button" class="success__btn" (click)="resetForm()">
+            <span class="material-symbols-outlined" aria-hidden="true">add</span>
+            Enviar otro mensaje
+          </button>
+        </div>
+      }
+    </div>
+
+    <!-- ========== Info lateral ========== -->
+    <aside class="contact__info-col">
+      <div class="info-card">
+        <span class="info-card__kicker">Datos de contacto</span>
+        <h2 class="info-card__title">Información general</h2>
+
+        <ul class="info-list">
+          <li class="info-list__item">
+            <span class="info-list__icon material-symbols-outlined" aria-hidden="true">call</span>
+            <div>
+              <span class="info-list__label">Teléfono general</span>
+              <a class="info-list__value" href="tel:+591 3 333 1000">+591 3 333 1000</a>
+            </div>
+          </li>
+          <li class="info-list__item">
+            <span class="info-list__icon material-symbols-outlined" aria-hidden="true">mail</span>
+            <div>
+              <span class="info-list__label">Correo</span>
+              <a class="info-list__value" href="mailto:contacto@petcare.example">
+                contacto@petcare.example
+              </a>
+            </div>
+          </li>
+          <li class="info-list__item">
+            <span class="info-list__icon material-symbols-outlined" aria-hidden="true">schedule</span>
+            <div>
+              <span class="info-list__label">Horario</span>
+              <span class="info-list__value">Lun–Sáb 08:00–20:00</span>
+            </div>
+          </li>
+          <li class="info-list__item">
+            <span class="info-list__icon material-symbols-outlined" aria-hidden="true">emergency</span>
+            <div>
+              <span class="info-list__label">Urgencias</span>
+              <a class="info-list__value" href="tel:+591 700 99999">+591 700 99999</a>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Redes (solo iconos) -->
+        <div class="info-card__socials">
+          <a class="info-card__social" href="#" aria-label="Facebook">
+            <span class="material-symbols-outlined">public</span>
+          </a>
+          <a class="info-card__social" href="#" aria-label="Instagram">
+            <span class="material-symbols-outlined">photo_camera</span>
+          </a>
+          <a class="info-card__social" href="#" aria-label="WhatsApp">
+            <span class="material-symbols-outlined">chat</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Sucursales mini -->
+      <div class="locs">
+        <span class="locs__kicker">Sucursales</span>
+        <ul class="locs__list">
+          @for (loc of locations(); track loc.id) {
+            <li class="loc-mini">
+              <span class="loc-mini__pin material-symbols-outlined" aria-hidden="true">
+                location_on
+              </span>
+              <div class="loc-mini__body">
+                <span class="loc-mini__name">{{ loc.name }}</span>
+                <span class="loc-mini__addr">{{ loc.address }}</span>
+              </div>
+            </li>
+          }
+        </ul>
+        <a class="locs__link" routerLink="/ubicaciones">
+          Ver mapa completo
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+        </a>
+      </div>
+    </aside>
+
+  </div>
 </section>

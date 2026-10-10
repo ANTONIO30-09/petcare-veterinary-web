@@ -1,33 +1,50 @@
-<article class="vet-card">
-  <!-- ============ Photo (top, full bleed) ============ -->
-  <div class="vet-card__photo">
-    @if (showPhoto()) {
-      <img
-        class="vet-card__img"
-        [src]="veterinarian().photo"
-        [alt]="'Foto de ' + veterinarian().name"
-        loading="lazy"
-        (error)="onPhotoError()"
-      />
-    } @else {
-      <div class="vet-card__initials-wrap">
-        <span class="vet-card__initials">{{ initials() }}</span>
-      </div>
-    }
+<article class="vet-card" [class.vet-card--minimal]="isMinimal()">
 
-    <div class="vet-card__photo-overlay" aria-hidden="true"></div>
+  <!-- ============ FULL: photo (top, full bleed) ============ -->
+  @if (!isMinimal()) {
+    <div class="vet-card__photo">
+      @if (showPhoto()) {
+        <img
+          class="vet-card__img"
+          [src]="veterinarian().photo"
+          [alt]="'Foto de ' + veterinarian().name"
+          loading="lazy"
+          (error)="onPhotoError()"
+        />
+      } @else {
+        <div class="vet-card__initials-wrap">
+          <span class="vet-card__initials">{{ initials() }}</span>
+        </div>
+      }
 
-    <!-- Experience badge floating on photo -->
-    @if (veterinarian().yearsExperience) {
-      <span class="vet-card__exp-badge">
-        <span class="material-symbols-outlined" aria-hidden="true">workspace_premium</span>
-        {{ veterinarian().yearsExperience }} años
-      </span>
-    }
-  </div>
+      <div class="vet-card__photo-overlay" aria-hidden="true"></div>
 
-  <!-- ============ Body ============ -->
+      @if (veterinarian().yearsExperience) {
+        <span class="vet-card__exp-badge">
+          <span class="material-symbols-outlined" aria-hidden="true">workspace_premium</span>
+          {{ veterinarian().yearsExperience }} años
+        </span>
+      }
+    </div>
+  }
+
+  <!-- ============ BODY ============ -->
   <div class="vet-card__body">
+
+    <!-- Minimal: avatar con iniciales + experiencia inline -->
+    @if (isMinimal()) {
+      <div class="vet-card__avatar" aria-hidden="true">
+        <span class="vet-card__avatar-initials">{{ initials() }}</span>
+      </div>
+
+      @if (veterinarian().yearsExperience) {
+        <span class="vet-card__exp-inline">
+          <span class="material-symbols-outlined" aria-hidden="true">workspace_premium</span>
+          {{ veterinarian().yearsExperience }} años
+        </span>
+      }
+    }
+
     <h3 class="vet-card__name">{{ veterinarian().name }}</h3>
     <p class="vet-card__title">{{ veterinarian().title }}</p>
 
@@ -38,20 +55,22 @@
       </span>
     }
 
-    <p class="vet-card__bio">{{ veterinarian().bio }}</p>
+    <!-- Full: bio + contacto. Minimal: solo bio corta -->
+    @if (!isMinimal()) {
+      <p class="vet-card__bio">{{ veterinarian().bio }}</p>
 
-    <!-- Contact (email) -->
-    @if (veterinarian().email) {
-      <footer class="vet-card__contact">
-        <a
-          class="vet-card__contact-link"
-          [href]="'mailto:' + veterinarian().email"
-          [attr.aria-label]="'Enviar correo a ' + veterinarian().name"
-        >
-          <span class="material-symbols-outlined" aria-hidden="true">mail</span>
-          <span class="vet-card__contact-text">{{ veterinarian().email }}</span>
-        </a>
-      </footer>
+      @if (veterinarian().email) {
+        <footer class="vet-card__contact">
+          <a
+            class="vet-card__contact-link"
+            [href]="'mailto:' + veterinarian().email"
+            [attr.aria-label]="'Enviar correo a ' + veterinarian().name"
+          >
+            <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+            <span class="vet-card__contact-text">{{ veterinarian().email }}</span>
+          </a>
+        </footer>
+      }
     }
   </div>
 </article>

@@ -91,16 +91,33 @@
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   }
 
-  &--specialties {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  }
-
   &--locations {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 
+  /* Centrados: para que las cards sobrantes queden en el medio */
+  &--specialties {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    app-specialty-card {
+      flex: 0 1 260px;
+      min-width: 220px;
+      max-width: 300px;
+    }
+  }
+
   &--veterinarians {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    app-veterinarian-card {
+      flex: 0 1 240px;
+      min-width: 220px;
+      max-width: 280px;
+    }
   }
 }
 

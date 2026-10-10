@@ -107,7 +107,11 @@
     } @else {
       <div class="grid grid--veterinarians">
         @for (vet of veterinarians(); track vet.id) {
-          <app-veterinarian-card [veterinarian]="vet" [specialtyName]="specialtyNameOf(vet.specialty)" />
+          <app-veterinarian-card
+            [veterinarian]="vet"
+            [specialtyName]="specialtyNameOf(vet.specialty)"
+            variant="minimal"
+          />
         }
       </div>
     }
