@@ -112,7 +112,7 @@
     color: var(--pc-green-800);
     opacity: 0.75;
 
-    span { color: var(--pc-coral-500, #E76F51); font-weight: 700; }
+    span { color: #E76F51; font-weight: 700; }
   }
 
   &__foot {
@@ -148,14 +148,6 @@
       transform: translateY(-2px);
       box-shadow: var(--pc-shadow-lg);
       .material-symbols-outlined { transform: translateX(4px) rotate(-8deg); }
-    }
-
-    &:disabled {
-      background: var(--pc-green-300);
-      color: var(--pc-cream-50);
-      cursor: not-allowed;
-      box-shadow: none;
-      transform: none;
     }
   }
 
@@ -272,7 +264,6 @@
     color: #C0392B;
   }
 
-  /* -------- Error state -------- */
   &--error {
     .field__input {
       border-color: #C0392B;

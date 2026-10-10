@@ -33,7 +33,6 @@
             </p>
           </header>
 
-          <!-- Nombre -->
           <div class="field" [class.field--error]="showError('name')">
             <label class="field__label" for="contact-name">
               Nombre completo <span aria-hidden="true">*</span>
@@ -57,7 +56,6 @@
             }
           </div>
 
-          <!-- Email -->
           <div class="field" [class.field--error]="showError('email')">
             <label class="field__label" for="contact-email">
               Correo electrónico <span aria-hidden="true">*</span>
@@ -81,7 +79,6 @@
             }
           </div>
 
-          <!-- Teléfono -->
           <div class="field" [class.field--error]="showError('phone')">
             <label class="field__label" for="contact-phone">Teléfono</label>
             <div class="field__control">
@@ -100,7 +97,6 @@
             }
           </div>
 
-          <!-- Row: nombre mascota + tipo -->
           <div class="field-row">
             <div class="field">
               <label class="field__label" for="contact-pet-name">Nombre de tu mascota</label>
@@ -137,7 +133,6 @@
             </div>
           </div>
 
-          <!-- Mensaje -->
           <div class="field" [class.field--error]="showError('message')">
             <label class="field__label" for="contact-message">
               Mensaje <span aria-hidden="true">*</span>
@@ -176,7 +171,6 @@
           </footer>
         </form>
       } @else {
-        <!-- Estado de éxito -->
         <div class="success" role="status">
           <span class="success__icon material-symbols-outlined" aria-hidden="true">
             check_circle
@@ -205,7 +199,7 @@
             <span class="info-list__icon material-symbols-outlined" aria-hidden="true">call</span>
             <div>
               <span class="info-list__label">Teléfono general</span>
-              <a class="info-list__value" href="tel:+591 3 333 1000">+591 3 333 1000</a>
+              <a class="info-list__value" href="tel:+59133331000">+591 3 333 1000</a>
             </div>
           </li>
           <li class="info-list__item">
@@ -228,12 +222,11 @@
             <span class="info-list__icon material-symbols-outlined" aria-hidden="true">emergency</span>
             <div>
               <span class="info-list__label">Urgencias</span>
-              <a class="info-list__value" href="tel:+591 700 99999">+591 700 99999</a>
+              <a class="info-list__value" href="tel:+59170099999">+591 700 99999</a>
             </div>
           </li>
         </ul>
 
-        <!-- Redes (solo iconos) -->
         <div class="info-card__socials">
           <a class="info-card__social" href="#" aria-label="Facebook">
             <span class="material-symbols-outlined">public</span>
@@ -247,7 +240,6 @@
         </div>
       </div>
 
-      <!-- Sucursales mini -->
       <div class="locs">
         <span class="locs__kicker">Sucursales</span>
         <ul class="locs__list">

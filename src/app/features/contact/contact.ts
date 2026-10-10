@@ -1,10 +1,6 @@
-import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import {
-  FormBuilder,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
 import { DataService } from '../../core/services/data.service';
@@ -26,16 +22,9 @@ export class Contact {
     initialValue: [],
   });
 
-  /** Señal de éxito: muestra el panel verde tras enviar. */
   protected readonly submitted = signal(false);
-
-  /** Último contacto enviado (para mostrar en el mensaje de éxito). */
   protected readonly lastContactName = signal('');
 
-  /** Contador de campos de contacto guardados. */
-  protected readonly savedCount = computed(() => this.contactService.getAll().length);
-
-  /** Formulario reactivo con valores no nulos. */
   protected readonly form = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
@@ -45,12 +34,10 @@ export class Contact {
     message: ['', [Validators.required, Validators.minLength(10)]],
   });
 
-  /** Helper para el template: atajo a los controles. */
   protected get controls() {
     return this.form.controls;
   }
 
-  /** Devuelve true si el control fue tocado y es inválido. */
   protected showError(controlName: keyof typeof this.form.controls): boolean {
     const ctrl = this.form.controls[controlName];
     return ctrl.invalid && (ctrl.touched || ctrl.dirty);
@@ -61,7 +48,6 @@ export class Contact {
       this.form.markAllAsTouched();
       return;
     }
-
     const value = this.form.getRawValue();
     this.contactService.save(value);
     this.lastContactName.set(value.name);
