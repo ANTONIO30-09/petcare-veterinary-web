@@ -1,4 +1,169 @@
-<section class="page">
-  <h1>Precios</h1>
-  <p>Lista de precios y planes de servicios — próximamente.</p>
+<!-- ============ Mini-hero ============ -->
+<header class="page-hero">
+  <div class="page-hero__inner">
+    <a class="page-hero__back" routerLink="/">
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+      Volver al inicio
+    </a>
+
+    <div class="page-hero__heading">
+      <span class="page-hero__kicker">Precios</span>
+      <h1 class="page-hero__title">
+        Planes <em>a tu medida</em>
+      </h1>
+      <p class="page-hero__subtitle">
+        Elige el plan que mejor se adapte a las necesidades de tu mascota.
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ Contenido ============ -->
+<section class="catalog">
+  <div class="catalog__inner">
+
+    <div class="catalog__head">
+      <h2 class="catalog__heading">Nuestros planes</h2>
+      <p class="catalog__count">
+        <strong>{{ totalCount() }}</strong>
+        {{ totalCount() === 1 ? 'servicio' : 'servicios' }} disponibles
+      </p>
+    </div>
+
+    @if (services().length === 0) {
+      <p class="catalog__empty">Cargando precios…</p>
+    } @else {
+      <div class="plans">
+        @for (plan of plans(); track plan.id) {
+          <article class="plan" [class.plan--popular]="plan.popular">
+            @if (plan.popular) {
+              <span class="plan__ribbon">
+                <span class="material-symbols-outlined" aria-hidden="true">star</span>
+                Recomendado
+              </span>
+            }
+
+            <header class="plan__head">
+              <span class="plan__icon" aria-hidden="true">
+                <span class="material-symbols-outlined">{{ plan.icon }}</span>
+              </span>
+              <span class="plan__tagline">{{ plan.tagline }}</span>
+              <h3 class="plan__name">{{ plan.name }}</h3>
+              <p class="plan__desc">{{ plan.description }}</p>
+            </header>
+
+            <div class="plan__price">
+              <span class="plan__price-label">Desde</span>
+              <span class="plan__price-amount">
+                <strong>{{ plan.fromPrice }}</strong>
+                <small>{{ plan.currency }}</small>
+              </span>
+              <span class="plan__price-note">por servicio</span>
+            </div>
+
+            <ul class="plan__features">
+              @for (svc of plan.services; track svc.id) {
+                <li class="plan__feature">
+                  <span class="material-symbols-outlined plan__feature-check" aria-hidden="true">
+                    check_circle
+                  </span>
+                  <span class="plan__feature-name">{{ svc.name }}</span>
+                  <span class="plan__feature-price">{{ svc.price }} {{ svc.currency }}</span>
+                </li>
+              }
+            </ul>
+
+            <a class="plan__cta" routerLink="/contacto">
+              Agendar cita
+              <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+            </a>
+          </article>
+        }
+      </div>
+    }
+
+    <!-- Bloque: ¿Qué incluye? -->
+    <!-- Bloque: ¿Qué incluye? -->
+    <section class="includes">
+      <header class="includes__head">
+        <span class="includes__kicker">Todo incluido</span>
+        <h2 class="includes__title">
+          ¿Qué incluye <em>cada consulta</em>?
+        </h2>
+        <p class="includes__subtitle">
+          Sin costos ocultos. Cada tarifa cubre los siguientes servicios básicos.
+        </p>
+      </header>
+
+      <div class="includes__grid">
+        <article class="includes__item">
+          <span class="includes__number" aria-hidden="true">01</span>
+          <div class="includes__item-body">
+            <div class="includes__item-head">
+              <span class="includes__icon material-symbols-outlined" aria-hidden="true">clinical_notes</span>
+              <h3 class="includes__item-title">Historia clínica</h3>
+            </div>
+            <p class="includes__item-desc">
+              Registro completo del estado de salud de tu mascota, disponible para futuras consultas.
+            </p>
+          </div>
+        </article>
+
+        <article class="includes__item">
+          <span class="includes__number" aria-hidden="true">02</span>
+          <div class="includes__item-body">
+            <div class="includes__item-head">
+              <span class="includes__icon material-symbols-outlined" aria-hidden="true">stethoscope</span>
+              <h3 class="includes__item-title">Examen físico</h3>
+            </div>
+            <p class="includes__item-desc">
+              Evaluación integral por un médico veterinario titulado.
+            </p>
+          </div>
+        </article>
+
+        <article class="includes__item">
+          <span class="includes__number" aria-hidden="true">03</span>
+          <div class="includes__item-body">
+            <div class="includes__item-head">
+              <span class="includes__icon material-symbols-outlined" aria-hidden="true">medication</span>
+              <h3 class="includes__item-title">Plan de tratamiento</h3>
+            </div>
+            <p class="includes__item-desc">
+              Indicaciones, medicación y receta personalizada si el caso lo requiere.
+            </p>
+          </div>
+        </article>
+
+        <article class="includes__item">
+          <span class="includes__number" aria-hidden="true">04</span>
+          <div class="includes__item-body">
+            <div class="includes__item-head">
+              <span class="includes__icon material-symbols-outlined" aria-hidden="true">support_agent</span>
+              <h3 class="includes__item-title">Seguimiento</h3>
+            </div>
+            <p class="includes__item-desc">
+              Acompañamiento post-consulta vía contacto directo para resolver dudas.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <aside class="cta-panel">
+      <div class="cta-panel__text">
+        <span class="cta-panel__kicker">¿Necesitas un presupuesto?</span>
+        <h2 class="cta-panel__title">Te asesoramos sin compromiso</h2>
+        <p class="cta-panel__desc">
+          Escríbenos y te enviamos un presupuesto detallado para el tratamiento de tu mascota.
+        </p>
+      </div>
+      <a class="cta-panel__btn" routerLink="/contacto">
+        Solicitar presupuesto
+        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+      </a>
+    </aside>
+
+  </div>
 </section>
