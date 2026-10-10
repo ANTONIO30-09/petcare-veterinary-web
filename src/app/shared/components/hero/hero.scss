@@ -7,21 +7,7 @@
   overflow: hidden;
 
   /* -------- Decorations -------- */
-  &__starburst {
-    position: absolute;
-    top: -3rem;
-    right: -3rem;
-    width: 15rem;
-    height: 15rem;
-    color: var(--pc-green-300);
-    opacity: 0.55;
-    animation: pc-spin 60s linear infinite;
-    pointer-events: none;
-
-    svg { width: 100%; height: 100%; display: block; }
-  }
-
-  &__paws-decor {
+&__paws-decor {
     position: absolute;
     bottom: -1rem;
     right: 4%;
@@ -178,10 +164,6 @@
   50%      { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
 }
 
-@keyframes pc-spin {
-  to { transform: rotate(360deg); }
-}
-
 @keyframes pc-paw-step {
   0%, 45%   { opacity: 1; }
   55%, 100% { opacity: 0.12; }
@@ -208,15 +190,7 @@
   .hero__content { margin: 0 auto; }
 
   .hero__actions { justify-content: center; }
-
-  .hero__starburst {
-    width: 9rem;
-    height: 9rem;
-    top: -1.5rem;
-    right: -1.5rem;
-  }
-
-  .hero__paws-decor {
+.hero__paws-decor {
     font-size: 3rem;
     opacity: 0.15;
   }

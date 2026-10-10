@@ -2,19 +2,112 @@
 
 <app-video-hero />
 
-<section class="services">
-  <div class="services__inner">
-    <header class="services__header">
-      <h2>Servicios destacados</h2>
-      <a class="services__link" routerLink="/servicios">Ver todos los servicios →</a>
+<!-- ============ SERVICIOS DESTACADOS ============ -->
+<section class="home-section home-section--cream services">
+  <div class="home-section__inner">
+    <header class="home-section__header">
+      <div class="home-section__heading">
+        <span class="home-section__kicker">Servicios</span>
+        <h2 class="home-section__title">Servicios destacados</h2>
+        <p class="home-section__subtitle">
+          Los más solicitados por nuestros pacientes.
+        </p>
+      </div>
+      <a class="home-section__link" routerLink="/servicios">
+        Ver todos los servicios →
+      </a>
     </header>
 
     @if (featuredServices().length === 0) {
-      <p class="services__empty">Cargando servicios…</p>
+      <p class="home-section__empty">Cargando servicios…</p>
     } @else {
-      <div class="services__grid">
+      <div class="grid grid--services">
         @for (svc of featuredServices(); track svc.id) {
           <app-service-card [service]="svc" />
+        }
+      </div>
+    }
+  </div>
+</section>
+
+<!-- ============ ESPECIALIDADES ============ -->
+<section class="home-section home-section--green specialties">
+  <div class="home-section__inner">
+    <header class="home-section__header">
+      <div class="home-section__heading">
+        <span class="home-section__kicker">Especialidades</span>
+        <h2 class="home-section__title">Especialidades veterinarias</h2>
+        <p class="home-section__subtitle">
+          Contamos con especialistas en cada área del cuidado animal.
+        </p>
+      </div>
+      <a class="home-section__link" routerLink="/especialidades">
+        Ver todas las especialidades →
+      </a>
+    </header>
+
+    @if (specialties().length === 0) {
+      <p class="home-section__empty">Cargando especialidades…</p>
+    } @else {
+      <div class="grid grid--specialties">
+        @for (spec of specialties(); track spec.id) {
+          <app-specialty-card [specialty]="spec" />
+        }
+      </div>
+    }
+  </div>
+</section>
+
+<!-- ============ UBICACIONES ============ -->
+<section class="home-section home-section--cream locations">
+  <div class="home-section__inner">
+    <header class="home-section__header">
+      <div class="home-section__heading">
+        <span class="home-section__kicker">Ubicaciones</span>
+        <h2 class="home-section__title">Nuestras sucursales</h2>
+        <p class="home-section__subtitle">
+          Encuentra la sucursal más cercana para tu mascota.
+        </p>
+      </div>
+      <a class="home-section__link" routerLink="/ubicaciones">
+        Ver todas las ubicaciones →
+      </a>
+    </header>
+
+    @if (locations().length === 0) {
+      <p class="home-section__empty">Cargando ubicaciones…</p>
+    } @else {
+      <div class="grid grid--locations">
+        @for (loc of locations(); track loc.id) {
+          <app-location-card [location]="loc" />
+        }
+      </div>
+    }
+  </div>
+</section>
+
+<!-- ============ VETERINARIOS ============ -->
+<section class="home-section home-section--green veterinarians">
+  <div class="home-section__inner">
+    <header class="home-section__header">
+      <div class="home-section__heading">
+        <span class="home-section__kicker">Equipo</span>
+        <h2 class="home-section__title">Nuestros veterinarios</h2>
+        <p class="home-section__subtitle">
+          Profesionales dedicados al bienestar de tu mascota.
+        </p>
+      </div>
+      <a class="home-section__link" routerLink="/nosotros">
+        Conoce al equipo →
+      </a>
+    </header>
+
+    @if (veterinarians().length === 0) {
+      <p class="home-section__empty">Cargando veterinarios…</p>
+    } @else {
+      <div class="grid grid--veterinarians">
+        @for (vet of veterinarians(); track vet.id) {
+          <app-veterinarian-card [veterinarian]="vet" [specialtyName]="specialtyNameOf(vet.specialty)" />
         }
       </div>
     }

@@ -4,51 +4,85 @@
 }
 
 .specialty-card {
+  position: relative;
   background: #fff;
   border: 1px solid var(--pc-green-200);
   border-radius: var(--pc-radius-lg);
-  padding: var(--pc-space-8) var(--pc-space-6);
+  padding: var(--pc-space-8) var(--pc-space-6) var(--pc-space-6);
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--pc-space-3);
   height: 100%;
   text-align: center;
-  transition: transform var(--pc-transition), box-shadow var(--pc-transition);
+  overflow: hidden;
+  transition: transform var(--pc-transition), box-shadow var(--pc-transition), border-color var(--pc-transition);
 
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--pc-shadow-lg);
+  /* Decorative blob (top-right) */
+  &::before {
+    content: '';
+    position: absolute;
+    top: -55px;
+    right: -55px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: var(--pc-green-100);
+    opacity: 0.85;
+    z-index: 0;
+    transition: transform var(--pc-transition-slow);
   }
 
-  &__avatar {
-    width: 4rem;
-    height: 4rem;
+  &:hover {
+    transform: translateY(-6px);
+    border-color: var(--pc-green-400);
+    box-shadow: var(--pc-shadow-lg);
+
+    &::before { transform: scale(1.15); }
+  }
+
+  &__icon {
+    position: relative;
+    z-index: 1;
+    width: 4.5rem;
+    height: 4.5rem;
     border-radius: var(--pc-radius-full);
-    background: linear-gradient(135deg, var(--pc-green-400) 0%, var(--pc-green-300) 100%);
+    background: linear-gradient(135deg, var(--pc-green-500) 0%, var(--pc-green-800) 100%);
     color: #fff;
-    font-family: var(--pc-font-display);
-    font-size: var(--pc-fs-2xl);
-    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto var(--pc-space-2);
-    box-shadow: var(--pc-shadow-md);
+    margin-bottom: var(--pc-space-2);
+    box-shadow:
+      0 8px 20px rgba(27, 67, 50, 0.25),
+      0 0 0 6px rgba(79, 175, 132, 0.14);
+
+    .material-symbols-outlined {
+      font-size: 2rem;
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
   }
 
   &__name {
+    position: relative;
+    z-index: 1;
     font-family: var(--pc-font-display);
-    font-size: var(--pc-fs-xl);
+    font-size: var(--pc-fs-lg);
     font-weight: 700;
     color: var(--pc-green-950);
     margin: 0;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
   }
 
   &__desc {
+    position: relative;
+    z-index: 1;
     margin: 0;
     color: var(--pc-green-900);
     font-size: var(--pc-fs-sm);
     line-height: 1.55;
     flex-grow: 1;
+    opacity: 0.85;
   }
 }

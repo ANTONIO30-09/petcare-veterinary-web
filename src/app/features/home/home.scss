@@ -1,6 +1,17 @@
-.services {
-  background: var(--pc-cream-50);
-  padding: var(--pc-space-12) var(--pc-space-6) var(--pc-space-20);
+/* ============================================================
+   Home — secciones
+   ============================================================ */
+
+.home-section {
+  padding: var(--pc-space-16) var(--pc-space-6);
+
+  &--cream {
+    background: var(--pc-cream-50);
+  }
+
+  &--green {
+    background: var(--pc-green-50);
+  }
 
   &__inner {
     max-width: var(--pc-container);
@@ -11,21 +22,44 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: var(--pc-space-4);
+    gap: var(--pc-space-6);
     margin-bottom: var(--pc-space-10);
+  }
 
-    h2 {
-      font-family: var(--pc-font-display);
-      font-size: clamp(1.75rem, 3vw, 2.5rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--pc-green-950);
-      margin: 0;
-    }
+  &__heading {
+    max-width: 42rem;
+  }
+
+  &__kicker {
+    display: inline-block;
+    font-size: var(--pc-fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pc-green-600);
+    margin-bottom: var(--pc-space-3);
+  }
+
+  &__title {
+    font-family: var(--pc-font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--pc-green-950);
+    margin: 0 0 var(--pc-space-3);
+  }
+
+  &__subtitle {
+    margin: 0;
+    color: var(--pc-green-900);
+    font-size: var(--pc-fs-base);
+    line-height: 1.55;
+    opacity: 0.82;
   }
 
   &__link {
-    color: var(--pc-green-500);
+    color: var(--pc-green-600);
     font-weight: 600;
     font-size: var(--pc-fs-sm);
     text-decoration: none;
@@ -36,32 +70,50 @@
     transition: color var(--pc-transition-fast), gap var(--pc-transition);
 
     &:hover {
-      color: var(--pc-green-700);
+      color: var(--pc-green-800);
       gap: var(--pc-space-3);
     }
   }
 
   &__empty {
-    color: var(--pc-green-700);
+    color: var(--pc-green-800);
     font-style: italic;
-  }
-
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: var(--pc-space-5);
+    opacity: 0.75;
   }
 }
 
-@media (max-width: 640px) {
-  .services {
-    padding: var(--pc-space-12) var(--pc-space-5);
+/* -------- Grids -------- */
+.grid {
+  display: grid;
+  gap: var(--pc-space-5);
+
+  &--services {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+
+  &--specialties {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  &--locations {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  &--veterinarians {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 768px) {
+  .home-section {
+    padding: var(--pc-space-10) var(--pc-space-5);
 
     &__header {
       flex-direction: column;
       align-items: flex-start;
-      gap: var(--pc-space-3);
-      margin-bottom: var(--pc-space-6);
+      gap: var(--pc-space-4);
+      margin-bottom: var(--pc-space-8);
     }
   }
 }

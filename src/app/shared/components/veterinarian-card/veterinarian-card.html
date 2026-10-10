@@ -1,10 +1,28 @@
-<article class="veterinarian-card">
-  <!-- TODO(design): reemplazar por <img> cuando existan assets reales -->
-  <div class="veterinarian-card__avatar" aria-hidden="true">{{ initials() }}</div>
-  <h3 class="veterinarian-card__name">{{ veterinarian().name }}</h3>
-  <p class="veterinarian-card__title">{{ veterinarian().title }}</p>
-  <p class="veterinarian-card__bio">{{ veterinarian().bio }}</p>
-  @if (veterinarian().yearsExperience) {
-    <p class="veterinarian-card__exp">{{ veterinarian().yearsExperience }} años de experiencia</p>
+<article class="vet-card">
+  <!-- Decorative blob -->
+  <div class="vet-card__blob" aria-hidden="true"></div>
+
+  <!-- Avatar + experience badge -->
+  <div class="vet-card__avatar-wrap">
+    <div class="vet-card__avatar" aria-hidden="true">
+      {{ initials() }}
+    </div>
+    @if (veterinarian().yearsExperience) {
+      <span class="vet-card__exp-badge">
+        {{ veterinarian().yearsExperience }} años
+      </span>
+    }
+  </div>
+
+  <h3 class="vet-card__name">{{ veterinarian().name }}</h3>
+  <p class="vet-card__title">{{ veterinarian().title }}</p>
+
+  @if (specialtyName()) {
+    <span class="vet-card__specialty">
+      <span class="material-symbols-outlined" aria-hidden="true">verified</span>
+      {{ specialtyName() }}
+    </span>
   }
+
+  <p class="vet-card__bio">{{ veterinarian().bio }}</p>
 </article>

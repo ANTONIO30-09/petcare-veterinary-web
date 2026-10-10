@@ -1,12 +1,27 @@
 <article class="service-card">
-  <div class="service-card__icon" aria-hidden="true">
-    <span class="material-symbols-outlined">{{ service().icon }}</span>
-  </div>
+  <div class="service-card__blob" aria-hidden="true"></div>
+
+  <header class="service-card__header">
+    <div class="service-card__icon" aria-hidden="true">
+      <span class="material-symbols-outlined">{{ service().icon }}</span>
+    </div>
+    @if (service().category) {
+      <span class="service-card__category">{{ service().category }}</span>
+    }
+  </header>
+
   <h3 class="service-card__name">{{ service().name }}</h3>
   <p class="service-card__desc">{{ service().description }}</p>
-  <p class="service-card__meta">
-    <strong>{{ service().price }} {{ service().currency }}</strong>
-    <span class="service-card__dot" aria-hidden="true">·</span>
-    {{ service().duration }} min
-  </p>
+
+  <footer class="service-card__footer">
+    <p class="service-card__price">
+      <strong>{{ service().price }}</strong>
+      <span class="service-card__currency">{{ service().currency }}</span>
+      <span class="service-card__dot" aria-hidden="true">·</span>
+      <span class="service-card__duration">{{ service().duration }} min</span>
+    </p>
+    @if (service().available) {
+      <span class="service-card__available" aria-label="Servicio disponible"></span>
+    }
+  </footer>
 </article>

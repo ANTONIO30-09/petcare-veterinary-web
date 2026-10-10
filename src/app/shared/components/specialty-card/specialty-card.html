@@ -1,7 +1,6 @@
 <article class="specialty-card">
-  <!-- TODO(design): reemplazar por <img> cuando existan assets reales -->
-  <div class="specialty-card__avatar" aria-hidden="true">
-    {{ specialty().name.charAt(0) }}
+  <div class="specialty-card__icon" aria-hidden="true">
+    <span class="material-symbols-outlined">{{ specialty().icon }}</span>
   </div>
   <h3 class="specialty-card__name">{{ specialty().name }}</h3>
   <p class="specialty-card__desc">{{ specialty().description }}</p>

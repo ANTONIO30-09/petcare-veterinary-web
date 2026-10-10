@@ -7,6 +7,8 @@ export interface Specialty {
   name: string;
   description: string;
   image: string;
+  /** Nombre del icono Material Symbols (p. ej. 'stethoscope'). */
+  icon: string;
   /** IDs de veterinarios que ejercen esta especialidad. */
   veterinarianIds: string[];
 }

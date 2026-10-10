@@ -1,12 +1,39 @@
-<article class="location-card">
-  <header class="location-card__header">
-    <span class="location-card__pin" aria-hidden="true">📍</span>
-    <h3 class="location-card__name">{{ location().name }}</h3>
-  </header>
-  <p class="location-card__address">{{ location().address }}</p>
-  <p class="location-card__meta">
-    <a class="location-card__phone" [href]="'tel:' + location().phone">{{ location().phone }}</a>
+<article class="loc-card">
+  <div class="loc-card__blob" aria-hidden="true"></div>
+
+  <!-- Map-pin icon badge -->
+  <div class="loc-card__pin" aria-hidden="true">
+    <span class="material-symbols-outlined">location_on</span>
+  </div>
+
+  <h3 class="loc-card__name">{{ location().name }}</h3>
+
+  <!-- Address -->
+  <p class="loc-card__row">
+    <span class="material-symbols-outlined loc-card__row-icon" aria-hidden="true">home_pin</span>
+    <span>{{ location().address }}</span>
   </p>
-  <p class="location-card__schedule">{{ location().schedule }}</p>
-  <!-- TODO(design): integrar mapa embebido con location().map / coordinates -->
+
+  <!-- Phone -->
+  <p class="loc-card__row">
+    <span class="material-symbols-outlined loc-card__row-icon" aria-hidden="true">call</span>
+    <a class="loc-card__phone" [href]="'tel:' + location().phone">{{ location().phone }}</a>
+  </p>
+
+  <!-- Schedule -->
+  <p class="loc-card__schedule">
+    <span class="material-symbols-outlined loc-card__schedule-icon" aria-hidden="true">schedule</span>
+    {{ location().schedule }}
+  </p>
+
+  <!-- CTA: open maps -->
+  <a
+    class="loc-card__map-btn"
+    [href]="location().map"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Cómo llegar
+    <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+  </a>
 </article>
