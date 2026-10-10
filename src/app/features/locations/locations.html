@@ -1,4 +1,126 @@
-<section class="page">
-  <h1>Ubicaciones</h1>
-  <p>Nuestras sucursales y cómo llegar — próximamente.</p>
+<!-- ============ Mini-hero ============ -->
+<header class="page-hero">
+  <div class="page-hero__inner">
+    <a class="page-hero__back" routerLink="/">
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+      Volver al inicio
+    </a>
+
+    <div class="page-hero__heading">
+      <span class="page-hero__kicker">Ubicaciones</span>
+      <h1 class="page-hero__title">
+        Nuestras <em>sucursales</em>
+      </h1>
+      <p class="page-hero__subtitle">
+        Encuentra la sucursal más cercana para atender a tu mascota en Santa Cruz de la Sierra.
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ Contenido ============ -->
+<section class="catalog">
+  <div class="catalog__inner">
+
+    <div class="catalog__head">
+      <h2 class="catalog__heading">Mapa de sucursales</h2>
+      <p class="catalog__count">
+        <strong>{{ totalCount() }}</strong>
+        {{ totalCount() === 1 ? 'sucursal' : 'sucursales' }}
+      </p>
+    </div>
+
+    @if (locations().length === 0) {
+      <p class="catalog__empty">Cargando ubicaciones…</p>
+    } @else {
+      <div class="map-layout">
+
+        <!-- ========== Mapa ========== -->
+        <div class="map-layout__map">
+          <app-map-view
+            class="map-layout__map-view"
+            [points]="mapPoints()"
+            [activeId]="activeId()"
+          />
+
+          @if (selectedLocation(); as loc) {
+            <div class="map-layout__overlay">
+              <span class="map-layout__overlay-pin" aria-hidden="true">
+                <span class="material-symbols-outlined">location_on</span>
+              </span>
+              <div class="map-layout__overlay-text">
+                <strong>{{ loc.name }}</strong>
+                <span>{{ loc.address }}</span>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- ========== Lista lateral ========== -->
+        <ul class="map-layout__list" role="list">
+          @for (loc of locations(); track loc.id; let i = $index) {
+            <li class="loc-item" [class.loc-item--active]="selectedIndex() === i">
+              <button
+                type="button"
+                class="loc-item__btn"
+                (click)="select(i)"
+                [attr.aria-pressed]="selectedIndex() === i"
+                [attr.aria-label]="'Ver ' + loc.name + ' en el mapa'"
+              >
+                <span class="loc-item__head">
+                  <span class="loc-item__number" aria-hidden="true">
+                    {{ (i + 1).toString().padStart(2, '0') }}
+                  </span>
+                  <span class="loc-item__name">{{ loc.name }}</span>
+                </span>
+
+                <span class="loc-item__line">
+                  <span class="material-symbols-outlined" aria-hidden="true">home_pin</span>
+                  {{ loc.address }}
+                </span>
+
+                <span class="loc-item__line">
+                  <span class="material-symbols-outlined" aria-hidden="true">call</span>
+                  {{ loc.phone }}
+                </span>
+
+                <span class="loc-item__schedule">
+                  <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
+                  {{ loc.schedule }}
+                </span>
+              </button>
+
+              <a
+                class="loc-item__external"
+                [href]="loc.map"
+                target="_blank"
+                rel="noopener noreferrer"
+                [attr.aria-label]="'Abrir ' + loc.name + ' en Google Maps'"
+              >
+                Abrir en Google Maps
+                <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
+              </a>
+            </li>
+          }
+        </ul>
+
+      </div>
+    }
+
+    <!-- CTA -->
+    <aside class="cta-panel">
+      <div class="cta-panel__text">
+        <span class="cta-panel__kicker">¿No sabes cuál elegir?</span>
+        <h2 class="cta-panel__title">Estamos para orientarte</h2>
+        <p class="cta-panel__desc">
+          Escríbenos y te recomendamos la sucursal con el especialista que necesitas.
+        </p>
+      </div>
+      <a class="cta-panel__btn" routerLink="/contacto">
+        Contactar
+        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+      </a>
+    </aside>
+
+  </div>
 </section>
