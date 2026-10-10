@@ -1,56 +1,115 @@
+:host {
+  display: block;
+}
+
 .navbar {
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 100;
+  background: rgba(253, 246, 236, 0.92);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-bottom: 1px solid var(--pc-peach-200);
+  padding: var(--pc-space-4) var(--pc-space-6);
 
   &__inner {
-    max-width: 1200px;
+    max-width: var(--pc-container);
     margin: 0 auto;
-    padding: 0.9rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: var(--pc-space-6);
   }
 
   &__brand {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: #0f766e;
+    gap: var(--pc-space-2);
     text-decoration: none;
-  }
+    color: var(--pc-navy-900);
+    transition: transform var(--pc-transition-fast);
 
-  &__brand-mark {
-    font-size: 1.5rem;
+    &:hover { transform: translateY(-1px); }
+
+    &-mark { font-size: 1.6rem; }
+
+    &-text {
+      font-family: var(--pc-font-display);
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: -0.02em;
+    }
   }
 
   &__links {
     display: flex;
-    gap: 1.25rem;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--pc-space-5);
+    flex: 1;
+    justify-content: center;
 
     a {
-      color: #374151;
-      text-decoration: none;
+      position: relative;
+      color: var(--pc-navy-700);
       font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.15s ease;
+      font-size: var(--pc-fs-sm);
+      padding: var(--pc-space-1) 0;
+      transition: color var(--pc-transition-fast);
 
-      &:hover,
-      &:focus-visible {
-        color: #0f766e;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -3px;
+        height: 2px;
+        background: var(--pc-honey-500);
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform var(--pc-transition);
       }
+
+      &:hover {
+        color: var(--pc-navy-900);
+
+        &::after { transform: scaleX(1); }
+      }
+
+      &.active {
+        color: var(--pc-coral-500);
+        font-weight: 600;
+
+        &::after { transform: scaleX(1); }
+      }
+    }
+  }
+
+  &__cta {
+    padding: 0.55rem 1.15rem;
+    border-radius: var(--pc-radius-full);
+    background: var(--pc-coral-500);
+    color: #fff;
+    font-weight: 600;
+    font-size: var(--pc-fs-sm);
+    box-shadow: var(--pc-shadow-sm);
+    transition: all var(--pc-transition-fast);
+    white-space: nowrap;
+
+    &:hover {
+      background: var(--pc-coral-600);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: var(--pc-shadow-md);
     }
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 900px) {
   .navbar__links {
+    /* TODO(fase-15): implementar menú hamburguesa */
     display: none;
+  }
+
+  .navbar__inner {
+    justify-content: space-between;
   }
 }

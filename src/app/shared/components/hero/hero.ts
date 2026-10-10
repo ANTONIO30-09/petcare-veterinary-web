@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 /**
- * Bloque hero de la página principal.
- * En esta fase el copy es estático; si en el futuro se reutiliza con
- * variantes, se puede exponer vía `input()`.
+ * Hero principal de la Home.
+ * Layout asimétrico: contenido a la izquierda, visual decorativo a la derecha.
  */
 @Component({
   selector: 'app-hero',
+  imports: [RouterLink],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

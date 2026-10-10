@@ -1,11 +1,10 @@
 :host {
-  display: block;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  color: #0f172a;
-  background: #f8fafc;
+  min-height: 100vh;
+  font-family: var(--pc-font-body);
+  color: var(--pc-navy-900);
+  background: var(--pc-cream-50);
 }
 
 .app-main {
