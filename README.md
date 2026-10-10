@@ -17,20 +17,21 @@ Aplicación web moderna para una clínica veterinaria, desarrollada en **Angular
 
 ## 🛠️ Stack Tecnológico
 
-| Tecnología | Versión | Uso |
-|---|---|---|
-| **Angular** | 22.2.1 | Framework principal |
-| **Angular CLI** | 22.2.2 | Tooling |
-| **TypeScript** | 6.0.3 | Lenguaje |
-| **Node.js** | 22.23.3 | Runtime |
-| **npm** | 10.9.9 | Gestor de paquetes |
-| **SCSS** | — | Estilos con design tokens |
-| **Leaflet** | 1.9.4 | Mapas interactivos |
-| **Vitest** | 5.x | Testing |
-| **Fraunces + DM Sans** | Google Fonts | Tipografía |
-| **Material Symbols** | Google Fonts | Iconografía |
+| Tecnología             | Versión      | Uso                       |
+| ---------------------- | ------------ | ------------------------- |
+| **Angular**            | 22.2.1       | Framework principal       |
+| **Angular CLI**        | 22.2.2       | Tooling                   |
+| **TypeScript**         | 6.0.3        | Lenguaje                  |
+| **Node.js**            | 22.23.3      | Runtime                   |
+| **npm**                | 10.9.9       | Gestor de paquetes        |
+| **SCSS**               | —            | Estilos con design tokens |
+| **Leaflet**            | 1.9.4        | Mapas interactivos        |
+| **Vitest**             | 5.x          | Testing                   |
+| **Fraunces + DM Sans** | Google Fonts | Tipografía                |
+| **Material Symbols**   | Google Fonts | Iconografía               |
 
 **Características de Angular moderno utilizadas:**
+
 - Standalone components (sin `NgModule`)
 - Lazy loading con `loadComponent`
 - Signals (`signal`, `computed`, `input`, `viewChild`)
@@ -47,12 +48,18 @@ Aplicación web moderna para una clínica veterinaria, desarrollada en **Angular
 - **npm** ≥ 10.x
 - Navegador moderno (Chrome, Firefox, Edge, Safari)
 
-Verificar:
+Verificar las versiones instaladas:
 
 ```bash
-node -v   # v22.x
-npm -v    # 10.x
-Instalación y ejecución
+node -v   # debe mostrar v22.x
+npm -v    # debe mostrar 10.x
+```
+
+---
+
+## 🚀 Instalación y ejecución
+
+```bash
 # 1) Clonar repositorio
 git clone https://github.com/ANTONIO30-09/petcare-veterinary-web.git
 cd petcare-veterinary-web
@@ -62,22 +69,41 @@ npm install
 
 # 3) Levantar servidor de desarrollo
 npm start
-La aplicación estará disponible en http://localhost:4200
-Build de producción
+```
+
+La aplicación estará disponible en **http://localhost:4200**
+
+---
+
+## 🏗️ Build de producción
+
+```bash
 npm run build
-El output queda en dist/veterinaria-petcare/browser/.
+```
 
-Tamaños de referencia:
+El output queda en `dist/veterinaria-petcare/browser/`.
 
-Initial total: ~79 KB (gzip)
+**Tamaños de referencia:**
 
-Chunk más pesado (Leaflet, lazy): ~42 KB (gzip)
+- Initial total: **~79 KB** (gzip)
+- Chunk más pesado (Leaflet, lazy): **~42 KB** (gzip)
+- El resto de features cargan bajo demanda
 
-El resto de features cargan bajo demanda
-Tests
+---
+
+## 🧪 Tests
+
+```bash
 npm test -- --watch=false
-Cobertura actual: 28 tests en 4 archivos (app, DataService, ContactService, ChatbotService).
- Estructura del proyecto
+```
+
+Cobertura actual: **28 tests** en 4 archivos (`app`, `DataService`, `ContactService`, `ChatbotService`).
+
+---
+
+## 📁 Estructura del proyecto
+
+```
 src/
 ├── app/
 │   ├── core/                     # Núcleo transversal
@@ -127,98 +153,115 @@ src/
 │
 ├── styles.scss                   # Tokens + reset + tipografía global
 └── index.html                    # Fuentes + metadatos
-Design System — "Emerald PetCare"
-Sistema de diseño con CSS Custom Properties definido en src/styles.scss.
+```
 
-Paleta completa (gama verde + crema):
+---
 
-Token	Uso
---pc-green-950 … --pc-green-50	11 tonos de verde (de más oscuro a más claro)
---pc-cream-50	Fondo cálido principal
---pc-white	Superficies
-Tipografía:
+## 🎨 Design System — "Emerald PetCare"
 
-Fraunces (serif variable) → títulos y display
+Sistema de diseño con **CSS Custom Properties** definido en `src/styles.scss`.
 
-DM Sans (sans geométrica) → cuerpo y UI
+**Paleta completa (gama verde + crema):**
 
-Escala: 49 tokens (--pc-space-*, --pc-fs-*, --pc-radius-*, --pc-shadow-*, --pc-transition-*).
-Funcionalidades
-Home
-Hero asimétrico con ilustración SVG de perro animada
+| Token                              | Uso                                           |
+| ---------------------------------- | --------------------------------------------- |
+| `--pc-green-950` … `--pc-green-50` | 11 tonos de verde (de más oscuro a más claro) |
+| `--pc-cream-50`                    | Fondo cálido principal                        |
+| `--pc-white`                       | Superficies                                   |
 
-Video institucional con fallback
+**Tipografía:**
 
-Servicios destacados (4 de 8)
+- **Fraunces** (serif variable) → títulos y display
+- **DM Sans** (sans geométrica) → cuerpo y UI
 
-Especialidades, Ubicaciones, Veterinarios (variante minimal)
+**Escala:** 49 tokens (`--pc-space-*`, `--pc-fs-*`, `--pc-radius-*`, `--pc-shadow-*`, `--pc-transition-*`).
 
-Tabla de precios con badge "Más solicitado"
+---
 
-Bloque institucional con stats
+## ✨ Funcionalidades
 
-CTA final
+### 🏠 Home
 
+- Hero asimétrico con ilustración SVG de perro animada
+- Video institucional con fallback
+- Servicios destacados (4 de 8)
+- Especialidades, Ubicaciones, Veterinarios (variante minimal)
+- Tabla de precios con badge "Más solicitado"
+- Bloque institucional con stats
+- CTA final
 
-Servicios
-Catálogo completo con filtros por categoría (chips) y contador dinámico.
-Especialidades
+### 🩺 Servicios
+
+Catálogo completo con **filtros por categoría** (chips) y contador dinámico.
+
+### 🎓 Especialidades
+
 Listado editorial con filas numeradas, iconos Material Symbols, hover premium.
 
+### 📍 Ubicaciones
 
-Ubicaciones
-Mapa interactivo con Leaflet + OpenStreetMap (sin API key). Click en sucursal → vuela al marcador con animación.
-Precios
+Mapa interactivo con **Leaflet + OpenStreetMap** (sin API key). Click en sucursal → vuela al marcador con animación.
+
+### 💰 Precios
+
 3 columnas tipo "Planes" (Preventivo, Diagnóstico, Cirugía) derivadas por categoría, con lista de servicios y precios.
-Nosotros
+
+### 👥 Nosotros
+
 Historia con timeline serpenteante, equipo de 5 veterinarios con fotos, valores institucionales.
 
+### ✉️ Contacto
 
-Contacto
-Formulario Reactive Forms con 6 campos y validaciones. Persistencia en localStorage. Estado de éxito tras enviar.
-Chatbot
+Formulario **Reactive Forms** con 6 campos y validaciones. Persistencia en `localStorage`. Estado de éxito tras enviar.
+
+### 🤖 Chatbot
+
 Widget flotante global + página completa con sidebar de preguntas rápidas. Respuestas predefinidas por palabras clave (no hay IA real, es simulación).
 
+---
 
-Accesibilidad
-Skip-link "Saltar al contenido principal" al tabular
+## ♿ Accesibilidad
 
-aria-label en todos los botones icon-only
+- Skip-link "Saltar al contenido principal" al tabular
+- `aria-label` en todos los botones icon-only
+- Foco visible (`:focus-visible` con outline verde)
+- Soporte `prefers-reduced-motion`
+- HTML semántico (`<main>`, `<header>`, `<nav>`, `<footer>`)
+- Contraste AA en textos principales
+- Navegación por teclado completa (incluye Escape para cerrar drawer)
 
-Foco visible (:focus-visible con outline verde)
+---
 
-Soporte prefers-reduced-motion
+## 📱 Responsive
 
-HTML semántico (<main>, <header>, <nav>, <footer>)
-
-Contraste AA en textos principales
-
-Navegación por teclado completa (incluye Escape para cerrar drawer)
-
-
-Responsive
 Diseño mobile-first adaptado a:
 
-Móvil (< 640px): drawer lateral, layouts en columna
+- **Móvil** (< 640px): drawer lateral, layouts en columna
+- **Tablet** (640–960px): grids intermedios
+- **Desktop** (> 960px): layout completo, sidebar sticky
 
-Tablet (640–960px): grids intermedios
+---
 
-Desktop (> 960px): layout completo, sidebar sticky
-Repositorio
-GitHub: https://github.com/ANTONIO30-09/petcare-veterinary-web
+## 🔗 Repositorio
 
-Rama principal: main
+**GitHub:** https://github.com/ANTONIO30-09/petcare-veterinary-web
 
+Rama principal: `main`
 
-Autor
-Antonio — Estudiante de Ingeniería de Sistemas
+---
 
-GitHub: @ANTONIO30-09
+## 👨‍💻 Autor
 
-Materia: PGM-611 Programación Gráfica y Multimedia I
-Hito: 3
-Semestre: 6
+**Antonio** — Estudiante de Ingeniería de Sistemas
 
+- GitHub: [@ANTONIO30-09](https://github.com/ANTONIO30-09)
 
-Licencia
+**Materia:** PGM-611 Programación Gráfica y Multimedia I
+**Hito:** 3
+**Semestre:** 6
+
+---
+
+## 📄 Licencia
+
 Proyecto académico — uso educativo. Los recursos externos (video de Pexels, imágenes de veterinarios) mantienen sus licencias originales.
