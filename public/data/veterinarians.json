@@ -5,7 +5,7 @@
     "title": "Médica Veterinaria Zootecnista",
     "specialty": "med-general",
     "bio": "Especialista en medicina general con amplia experiencia en consulta preventiva y seguimiento clínico de pequeñas especies.",
-    "photo": "/assets/images/veterinarians/vet-001.jpg",
+    "photo": "https://img.magnific.com/foto-gratis/medica-hospital-estetoscopio_23-2148827774.jpg?semt=ais_hybrid&w=740&q=80",
     "email": "maria.fernandez@petcare.example",
     "phone": "+591 700 10001",
     "yearsExperience": 12
@@ -16,7 +16,7 @@
     "title": "Cardiólogo Veterinario",
     "specialty": "cardiologia",
     "bio": "Cardiólogo con formación en ecocardiografía y manejo de insuficiencia cardíaca en caninos y felinos.",
-    "photo": "/assets/images/veterinarians/vet-002.jpg",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkUUf5jtBN6ew7l0iDz7NlP1v3_szyCSoJ9cIrVSmDBQ&s=10",
     "email": "carlos.rojas@petcare.example",
     "phone": "+591 700 10002",
     "yearsExperience": 15
@@ -27,7 +27,7 @@
     "title": "Dermatóloga Veterinaria",
     "specialty": "dermatologia",
     "bio": "Especialista en dermatología clínica, alergias alimentarias y manejo de dermatitis crónicas.",
-    "photo": "/assets/images/veterinarians/vet-003.jpg",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm0h-kcov0edXRY2f9XrhL8h1z7vEJPYYY9APTzqSuSA&s=10",
     "email": "lucia.mendez@petcare.example",
     "phone": "+591 700 10003",
     "yearsExperience": 9
@@ -38,7 +38,7 @@
     "title": "Traumatólogo Veterinario",
     "specialty": "traumatologia",
     "bio": "Cirujano ortopédico con experiencia en osteosíntesis, artroscopia y rehabilitación postquirúrgica.",
-    "photo": "/assets/images/veterinarians/vet-004.jpg",
+    "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfuKUZ0CVWlq6JiVpnyIkHw0pWQTdbC6U2Eed0pozcW2GGKBNnsyK93mQ&s=10",
     "email": "jorge.salazar@petcare.example",
     "phone": "+591 700 10004",
     "yearsExperience": 14
@@ -49,7 +49,7 @@
     "title": "Odontóloga Veterinaria",
     "specialty": "odontologia",
     "bio": "Odontóloga veterinaria enfocada en prevención, tratamiento periodontal y cirugía oral.",
-    "photo": "/assets/images/veterinarians/vet-005.jpg",
+    "photo": "https://static.vecteezy.com/system/resources/thumbnails/023/416/549/small/professional-doctor-woman-with-blue-stethoscope-and-white-medical-gown-photo.jpg",
     "email": "andrea.quispe@petcare.example",
     "phone": "+591 700 10005",
     "yearsExperience": 7

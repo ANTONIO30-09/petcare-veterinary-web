@@ -1,20 +1,569 @@
-:host {
-  display: block;
+:host { display: block; }
+
+/* ============================================================
+   Mini-hero
+   ============================================================ */
+.page-hero {
+  background: linear-gradient(180deg, var(--pc-green-50) 0%, var(--pc-cream-50) 100%);
+  padding: var(--pc-space-10) var(--pc-space-6) var(--pc-space-8);
+  border-bottom: 1px solid var(--pc-green-200);
+
+  &__inner { max-width: var(--pc-container); margin: 0 auto; }
+
+  &__back {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pc-space-2);
+    color: var(--pc-green-700);
+    font-weight: 600;
+    font-size: var(--pc-fs-sm);
+    text-decoration: none;
+    margin-bottom: var(--pc-space-5);
+    transition: color var(--pc-transition-fast), gap var(--pc-transition);
+
+    .material-symbols-outlined {
+      font-size: 1.1rem;
+      transition: transform var(--pc-transition);
+    }
+
+    &:hover {
+      color: var(--pc-green-900);
+      gap: var(--pc-space-3);
+      .material-symbols-outlined { transform: translateX(-3px); }
+    }
+  }
+
+  &__heading { max-width: 44rem; }
+
+  &__kicker {
+    display: inline-block;
+    font-size: var(--pc-fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pc-green-600);
+    margin-bottom: var(--pc-space-3);
+  }
+
+  &__title {
+    font-family: var(--pc-font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    color: var(--pc-green-950);
+    margin: 0 0 var(--pc-space-3);
+
+    em { font-style: italic; color: var(--pc-green-600); }
+  }
+
+  &__subtitle {
+    color: var(--pc-green-900);
+    font-size: var(--pc-fs-lg);
+    line-height: 1.55;
+    margin: 0;
+    opacity: 0.85;
+  }
 }
 
-.page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
+/* ============================================================
+   Historia + Timeline
+   ============================================================ */
+.history {
+  padding: var(--pc-space-12) var(--pc-space-6) var(--pc-space-10);
 
-  h1 {
-    margin: 0 0 0.75rem;
-    font-size: 2rem;
-    color: #0f172a;
+  &__inner {
+    max-width: var(--pc-container);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--pc-space-10);
+    align-items: center;
   }
 
-  p {
+  &__kicker {
+    display: inline-block;
+    font-size: var(--pc-fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pc-green-600);
+    margin-bottom: var(--pc-space-3);
+  }
+
+  &__title {
+    font-family: var(--pc-font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    color: var(--pc-green-950);
+    margin: 0 0 var(--pc-space-5);
+
+    em { display: block; font-style: italic; color: var(--pc-green-700); }
+  }
+
+  &__text {
+    color: var(--pc-green-900);
+    font-size: var(--pc-fs-lg);
+    line-height: 1.65;
+    margin: 0 0 var(--pc-space-6);
+    opacity: 0.85;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pc-space-2);
+    padding: 0.85rem 1.6rem;
+    background: var(--pc-green-950);
+    color: var(--pc-cream-50);
+    border-radius: var(--pc-radius-full);
+    font-weight: 700;
+    font-size: var(--pc-fs-base);
+    text-decoration: none;
+    box-shadow: var(--pc-shadow-md);
+    transition: all var(--pc-transition);
+
+    .material-symbols-outlined {
+      font-size: 1.1rem;
+      transition: transform var(--pc-transition);
+    }
+
+    &:hover {
+      background: #000;
+      color: var(--pc-cream-50);
+      transform: translateY(-2px);
+      box-shadow: var(--pc-shadow-lg);
+      .material-symbols-outlined { transform: translateX(4px); }
+    }
+  }
+}
+
+/* ============================================================
+   Timeline "camino de bosque"
+   ============================================================ */
+.timeline-wrap {
+  position: relative;
+  padding: var(--pc-space-2) 0;
+}
+
+.timeline-wrap__path {
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  width: 2rem;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* -------- Forest decorations -------- */
+.timeline-wrap__tree {
+  position: absolute;
+  font-size: 1.3rem;
+  opacity: 0.5;
+  pointer-events: none;
+  filter: saturate(0.9);
+
+  &--1 { top: 4%;  left: 3.25rem; font-size: 1.5rem; }
+  &--2 { top: 30%; left: 0.15rem; font-size: 1.15rem; }
+  &--3 { top: 58%; left: 3.4rem;  font-size: 1.4rem; }
+  &--4 { top: 82%; left: 0.3rem;  font-size: 1.1rem; }
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.timeline__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: var(--pc-space-3);
+  align-items: center;
+  padding: var(--pc-space-2) 0;
+}
+
+/* -------- Dot with leaf icon -------- */
+.timeline__dot {
+  position: relative;
+  justify-self: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pc-green-500) 0%, var(--pc-green-800) 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 8px 18px rgba(27, 67, 50, 0.28),
+    0 0 0 5px var(--pc-cream-50),
+    0 0 0 7px var(--pc-green-200);
+  z-index: 1;
+  transition: transform var(--pc-transition);
+
+  .material-symbols-outlined {
+    font-size: 1rem;
+    font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+  }
+
+  .timeline__item:hover & {
+    transform: scale(1.08);
+  }
+}
+
+/* -------- Card -------- */
+.timeline__card {
+  position: relative;
+  padding: var(--pc-space-3) var(--pc-space-5);
+  background: #fff;
+  border: 1px solid var(--pc-green-200);
+  border-radius: var(--pc-radius-lg);
+  box-shadow: var(--pc-shadow-sm);
+  transition: transform var(--pc-transition), box-shadow var(--pc-transition), border-color var(--pc-transition);
+
+  /* Pequeño triángulo que apunta al dot (estilo carta) */
+  &::before {
+    content: '';
+    position: absolute;
+    left: -0.5rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 1rem;
+    height: 1rem;
+    background: #fff;
+    border-left: 1px solid var(--pc-green-200);
+    border-bottom: 1px solid var(--pc-green-200);
+  }
+
+  .timeline__item:hover & {
+    transform: translateX(4px);
+    border-color: var(--pc-green-400);
+    box-shadow: var(--pc-shadow-md);
+  }
+}
+
+.timeline__year {
+  display: inline-block;
+  font-family: var(--pc-font-display);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--pc-green-700);
+  background: var(--pc-green-100);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--pc-radius-full);
+  margin-bottom: var(--pc-space-1);
+  border: 1px solid var(--pc-green-200);
+}
+
+.timeline__title {
+  font-family: var(--pc-font-display);
+  font-size: var(--pc-fs-base);
+  font-weight: 700;
+  color: var(--pc-green-950);
+  margin: 0 0 0.15rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.timeline__desc {
+  margin: 0;
+  color: var(--pc-green-900);
+  font-size: var(--pc-fs-xs);
+  line-height: 1.45;
+  opacity: 0.82;
+}
+
+/* ============================================================
+   Equipo
+   ============================================================ */
+.team {
+  background: var(--pc-green-50);
+  padding: var(--pc-space-12) var(--pc-space-6) var(--pc-space-10);
+
+  &__inner {
+    position: relative;
+    max-width: var(--pc-container);
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  &__head {
+    max-width: 44rem;
+    margin: 0 auto var(--pc-space-10);
+    text-align: center;
+  }
+
+  &__kicker {
+    display: inline-block;
+    font-size: var(--pc-fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pc-green-600);
+    margin-bottom: var(--pc-space-3);
+  }
+
+  &__title {
+    font-family: var(--pc-font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    color: var(--pc-green-950);
+    margin: 0 0 var(--pc-space-3);
+  }
+
+  &__subtitle {
     margin: 0;
-    color: #4b5563;
+    color: var(--pc-green-900);
+    font-size: var(--pc-fs-lg);
+    line-height: 1.55;
+    opacity: 0.82;
   }
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--pc-space-6);
+
+    app-veterinarian-card {
+      flex: 0 1 280px;
+      min-width: 240px;
+      max-width: 320px;
+    }
+  }
+
+  &__empty {
+    color: var(--pc-green-800);
+    font-style: italic;
+    opacity: 0.75;
+    text-align: center;
+  }
+}
+
+
+/* ============================================================
+   Valores
+   ============================================================ */
+.values {
+  padding: var(--pc-space-12) var(--pc-space-6) var(--pc-space-10);
+
+  &__inner {
+    max-width: var(--pc-container);
+    margin: 0 auto;
+  }
+
+  &__head {
+    max-width: 44rem;
+    margin: 0 auto var(--pc-space-10);
+    text-align: center;
+  }
+
+  &__kicker {
+    display: inline-block;
+    font-size: var(--pc-fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pc-green-600);
+    margin-bottom: var(--pc-space-3);
+  }
+
+  &__title {
+    font-family: var(--pc-font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    color: var(--pc-green-950);
+    margin: 0;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--pc-space-5);
+  }
+}
+
+.value-card {
+  padding: var(--pc-space-6);
+  background: #fff;
+  border: 1px solid var(--pc-green-200);
+  border-radius: var(--pc-radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--pc-space-3);
+  transition: transform var(--pc-transition), border-color var(--pc-transition), box-shadow var(--pc-transition);
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--pc-green-400);
+    box-shadow: var(--pc-shadow-lg);
+
+    .value-card__icon { transform: scale(1.06) rotate(-6deg); }
+  }
+
+  &__icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--pc-radius-full);
+    background: linear-gradient(135deg, var(--pc-green-500) 0%, var(--pc-green-800) 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    box-shadow:
+      0 6px 14px rgba(27, 67, 50, 0.22),
+      0 0 0 4px rgba(79, 175, 132, 0.12);
+    transition: transform var(--pc-transition);
+  }
+
+  &__title {
+    font-family: var(--pc-font-display);
+    font-size: var(--pc-fs-lg);
+    font-weight: 700;
+    color: var(--pc-green-950);
+    margin: 0;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  &__desc {
+    margin: 0;
+    color: var(--pc-green-900);
+    font-size: var(--pc-fs-sm);
+    line-height: 1.55;
+    opacity: 0.82;
+  }
+}
+
+
+
+/* ============================================================
+   CTA final
+   ============================================================ */
+.cta-section {
+  padding: 0 var(--pc-space-6) var(--pc-space-20);
+
+  &__inner { max-width: var(--pc-container); margin: 0 auto; }
+}
+
+.cta-panel {
+  padding: var(--pc-space-8) var(--pc-space-10);
+  background: linear-gradient(135deg, var(--pc-green-800) 0%, var(--pc-green-950) 100%);
+  color: var(--pc-cream-50);
+  border-radius: var(--pc-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pc-space-8);
+  box-shadow: var(--pc-shadow-lg);
+
+  &__text { max-width: 38rem; }
+
+  &__kicker {
+    display: inline-block;
+    font-size: var(--pc-fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pc-green-300);
+    margin-bottom: var(--pc-space-2);
+  }
+
+  &__title {
+    font-family: var(--pc-font-display);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--pc-cream-50);
+    margin: 0 0 var(--pc-space-2);
+    line-height: 1.15;
+  }
+
+  &__desc {
+    margin: 0;
+    color: var(--pc-green-100);
+    font-size: var(--pc-fs-base);
+    line-height: 1.55;
+    opacity: 0.85;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pc-space-2);
+    padding: 0.9rem 1.6rem;
+    background: var(--pc-cream-50);
+    color: var(--pc-green-950);
+    border-radius: var(--pc-radius-full);
+    font-weight: 700;
+    font-size: var(--pc-fs-base);
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: var(--pc-shadow-md);
+    transition: all var(--pc-transition);
+
+    .material-symbols-outlined {
+      font-size: 1.15rem;
+      transition: transform var(--pc-transition);
+    }
+
+    &:hover {
+      background: #fff;
+      color: var(--pc-green-950);
+      transform: translateY(-2px);
+      box-shadow: var(--pc-shadow-lg);
+      .material-symbols-outlined { transform: translateX(4px); }
+    }
+  }
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 860px) {
+  .history__inner {
+    grid-template-columns: 1fr;
+    gap: var(--pc-space-10);
+  }
+
+  .cta-panel {
+    flex-direction: column;
+    text-align: center;
+    padding: var(--pc-space-8) var(--pc-space-6);
+    gap: var(--pc-space-5);
+  }
+}
+
+@media (max-width: 640px) {
+  .page-hero { padding: var(--pc-space-8) var(--pc-space-5) var(--pc-space-6); }
+  .history,
+  .team,
+  .values { padding: var(--pc-space-12) var(--pc-space-5); }
+
+  .cta-section { padding: 0 var(--pc-space-5) var(--pc-space-16); }
+}
+
+@media (max-width: 640px) {
+  .timeline-wrap__tree { display: none; }
+  .timeline-wrap__path { left: 1rem; width: 1.6rem; }
+  .timeline__item { grid-template-columns: 2.5rem 1fr; gap: var(--pc-space-3); }
+  .timeline__dot {
+    width: 2.25rem;
+    height: 2.25rem;
+    .material-symbols-outlined { font-size: 1.15rem; }
+  }
+  .timeline__card { padding: var(--pc-space-4) var(--pc-space-5); }
 }

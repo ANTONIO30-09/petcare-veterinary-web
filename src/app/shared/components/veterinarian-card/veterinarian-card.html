@@ -1,28 +1,57 @@
 <article class="vet-card">
-  <!-- Decorative blob -->
-  <div class="vet-card__blob" aria-hidden="true"></div>
+  <!-- ============ Photo (top, full bleed) ============ -->
+  <div class="vet-card__photo">
+    @if (showPhoto()) {
+      <img
+        class="vet-card__img"
+        [src]="veterinarian().photo"
+        [alt]="'Foto de ' + veterinarian().name"
+        loading="lazy"
+        (error)="onPhotoError()"
+      />
+    } @else {
+      <div class="vet-card__initials-wrap">
+        <span class="vet-card__initials">{{ initials() }}</span>
+      </div>
+    }
 
-  <!-- Avatar + experience badge -->
-  <div class="vet-card__avatar-wrap">
-    <div class="vet-card__avatar" aria-hidden="true">
-      {{ initials() }}
-    </div>
+    <div class="vet-card__photo-overlay" aria-hidden="true"></div>
+
+    <!-- Experience badge floating on photo -->
     @if (veterinarian().yearsExperience) {
       <span class="vet-card__exp-badge">
+        <span class="material-symbols-outlined" aria-hidden="true">workspace_premium</span>
         {{ veterinarian().yearsExperience }} años
       </span>
     }
   </div>
 
-  <h3 class="vet-card__name">{{ veterinarian().name }}</h3>
-  <p class="vet-card__title">{{ veterinarian().title }}</p>
+  <!-- ============ Body ============ -->
+  <div class="vet-card__body">
+    <h3 class="vet-card__name">{{ veterinarian().name }}</h3>
+    <p class="vet-card__title">{{ veterinarian().title }}</p>
 
-  @if (specialtyName()) {
-    <span class="vet-card__specialty">
-      <span class="material-symbols-outlined" aria-hidden="true">verified</span>
-      {{ specialtyName() }}
-    </span>
-  }
+    @if (specialtyName()) {
+      <span class="vet-card__specialty">
+        <span class="material-symbols-outlined" aria-hidden="true">verified</span>
+        {{ specialtyName() }}
+      </span>
+    }
 
-  <p class="vet-card__bio">{{ veterinarian().bio }}</p>
+    <p class="vet-card__bio">{{ veterinarian().bio }}</p>
+
+    <!-- Contact (email) -->
+    @if (veterinarian().email) {
+      <footer class="vet-card__contact">
+        <a
+          class="vet-card__contact-link"
+          [href]="'mailto:' + veterinarian().email"
+          [attr.aria-label]="'Enviar correo a ' + veterinarian().name"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+          <span class="vet-card__contact-text">{{ veterinarian().email }}</span>
+        </a>
+      </footer>
+    }
+  </div>
 </article>

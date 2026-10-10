@@ -1,12 +1,12 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
 
 import { Veterinarian } from '../../../core/models/veterinarian.model';
 
 /**
- * Tarjeta reutilizable de un veterinario.
- * Iniciales calculadas a partir del nombre, ignorando títulos como "Dr." / "Dra.".
- * `specialtyName` es opcional: nombre legible de la especialidad, para mostrar
- * como pill si el caller lo conoce (p. ej. desde Home resolviendo el JSON).
+ * Tarjeta de presentación profesional de un veterinario.
+ * - Foto a sangre completa (aspect 4:5) con object-position top.
+ * - Fallback automático a iniciales si la foto falla o no existe.
+ * - `specialtyName` opcional: nombre legible de la especialidad.
  */
 @Component({
   selector: 'app-veterinarian-card',
@@ -18,6 +18,13 @@ export class VeterinarianCard {
   readonly veterinarian = input.required<Veterinarian>();
   readonly specialtyName = input<string>('');
 
+  /** True cuando la imagen falló → mostramos iniciales. */
+  protected readonly photoFailed = signal(false);
+
+  protected readonly showPhoto = computed(
+    () => !this.photoFailed() && !!this.veterinarian().photo,
+  );
+
   protected readonly initials = computed(() =>
     this.veterinarian()
       .name.split(' ')
@@ -26,4 +33,8 @@ export class VeterinarianCard {
       .map((part) => part.charAt(0).toUpperCase())
       .join(''),
   );
+
+  protected onPhotoError(): void {
+    this.photoFailed.set(true);
+  }
 }
