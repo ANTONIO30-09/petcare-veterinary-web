@@ -4,11 +4,31 @@
   &__inner {
     max-width: 1200px;
     margin: 0 auto;
+  }
+
+  &__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 
     h2 {
+      margin: 0;
       font-size: 1.9rem;
-      margin: 0 0 1.5rem;
       color: #0f172a;
+    }
+  }
+
+  &__link {
+    color: #0f766e;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    white-space: nowrap;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 
@@ -20,5 +40,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .services__header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

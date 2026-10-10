@@ -1,17 +1,24 @@
 <app-hero />
 
+<app-video-hero />
+
 <section class="services">
   <div class="services__inner">
-    <h2>Nuestros servicios</h2>
+    <header class="services__header">
+      <h2>Servicios destacados</h2>
+      <a class="services__link" routerLink="/servicios">Ver todos los servicios →</a>
+    </header>
 
-    @if (services().length === 0) {
+    @if (featuredServices().length === 0) {
       <p class="services__empty">Cargando servicios…</p>
     } @else {
       <div class="services__grid">
-        @for (svc of services(); track svc.id) {
+        @for (svc of featuredServices(); track svc.id) {
           <app-service-card [service]="svc" />
         }
       </div>
     }
   </div>
 </section>
+
+<app-cta-banner />

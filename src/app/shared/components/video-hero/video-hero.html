@@ -1,0 +1,28 @@
+<section
+  class="video-hero"
+  [class.video-hero--fallback]="videoFailed()"
+  aria-label="Video institucional de PetCare"
+>
+  @if (!videoFailed()) {
+    <video
+      class="video-hero__video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      (error)="onError()"
+    >
+      <source [src]="videoSrc" type="video/mp4" />
+    </video>
+    <div class="video-hero__overlay"></div>
+    <div class="video-hero__caption">
+      <p>Conoce PetCare en movimiento</p>
+    </div>
+  } @else {
+    <div class="video-hero__placeholder">
+      <span class="video-hero__placeholder-icon" aria-hidden="true">🎥</span>
+      <p>Video próximamente</p>
+    </div>
+  }
+</section>
