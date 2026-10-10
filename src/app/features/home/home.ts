@@ -9,6 +9,8 @@ import { ServiceCard } from '../../shared/components/service-card/service-card';
 import { SpecialtyCard } from '../../shared/components/specialty-card/specialty-card';
 import { LocationCard } from '../../shared/components/location-card/location-card';
 import { VeterinarianCard } from '../../shared/components/veterinarian-card/veterinarian-card';
+import { PricingTable } from '../../shared/components/pricing-table/pricing-table';
+import { InfoBlock } from '../../shared/components/info-block/info-block';
 import { CtaBanner } from '../../shared/components/cta-banner/cta-banner';
 
 @Component({
@@ -21,6 +23,8 @@ import { CtaBanner } from '../../shared/components/cta-banner/cta-banner';
     SpecialtyCard,
     LocationCard,
     VeterinarianCard,
+    PricingTable,
+    InfoBlock,
     CtaBanner,
   ],
   templateUrl: './home.html',
@@ -48,7 +52,6 @@ export class Home {
 
   protected readonly featuredServices = computed(() => this.services().slice(0, 4));
 
-  /** Mapa id de especialidad → nombre visible, para pasar a las vet-cards. */
   private readonly specialtyNames = computed(() => {
     const map = new Map<string, string>();
     for (const spec of this.specialties()) map.set(spec.id, spec.name);

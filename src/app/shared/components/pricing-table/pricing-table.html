@@ -1,0 +1,43 @@
+<div class="pricing">
+  <header class="pricing__head">
+    <span class="pricing__head-label">Precio referencial</span>
+    <span class="pricing__head-note">En BOB · IVA incluido</span>
+  </header>
+
+  <ul class="pricing__list">
+    @for (svc of sorted(); track svc.id; let i = $index) {
+      <li class="pricing__row">
+        <span class="pricing__index" aria-hidden="true">
+          {{ (i + 1).toString().padStart(2, '0') }}
+        </span>
+
+        <span class="pricing__icon" aria-hidden="true">
+          <span class="material-symbols-outlined">{{ svc.icon }}</span>
+        </span>
+
+        <div class="pricing__info">
+          <div class="pricing__name-row">
+            <span class="pricing__name">{{ svc.name }}</span>
+            @if (svc.id === popularId()) {
+              <span class="pricing__badge">
+                <span class="material-symbols-outlined" aria-hidden="true">star</span>
+                Más solicitado
+              </span>
+            }
+          </div>
+          <span class="pricing__duration">{{ svc.duration }} min</span>
+        </div>
+
+        <span class="pricing__price">
+          <strong>{{ svc.price }}</strong>
+          <small>{{ svc.currency }}</small>
+        </span>
+      </li>
+    }
+  </ul>
+
+  <footer class="pricing__foot">
+    <span class="material-symbols-outlined" aria-hidden="true">info</span>
+    Los precios pueden variar según la valoración del paciente.
+  </footer>
+</div>

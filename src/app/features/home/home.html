@@ -114,4 +114,35 @@
   </div>
 </section>
 
+<!-- ============ PRECIOS ============ -->
+<section class="home-section home-section--cream pricing">
+  <div class="home-section__inner">
+    <header class="home-section__header">
+      <div class="home-section__heading">
+        <span class="home-section__kicker">Precios</span>
+        <h2 class="home-section__title">Lista de precios</h2>
+        <p class="home-section__subtitle">
+          Transparencia total: precios referenciales de nuestros servicios más solicitados.
+        </p>
+      </div>
+      <a class="home-section__link" routerLink="/precios">
+        Ver todos los precios →
+      </a>
+    </header>
+
+    @if (services().length === 0) {
+      <p class="home-section__empty">Cargando precios…</p>
+    } @else {
+      <app-pricing-table [services]="services()" />
+    }
+  </div>
+</section>
+
+<!-- ============ SOBRE PETCARE ============ -->
+<section class="home-section home-section--green about">
+  <div class="home-section__inner">
+    <app-info-block />
+  </div>
+</section>
+
 <app-cta-banner />
