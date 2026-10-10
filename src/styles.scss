@@ -71,6 +71,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  overflow-x: clip;
   font-family: var(--pc-font-body);
   font-size: 16px;
   line-height: 1.6;
@@ -118,4 +119,53 @@ button { font-family: inherit; cursor: pointer; }
 ::selection {
   background: var(--pc-green-300);
   color: var(--pc-green-950);
+}
+
+/* ============================================================
+   Accesibilidad — Skip link
+   ============================================================ */
+.skip-link {
+  position: fixed;
+  top: var(--pc-space-3);
+  left: var(--pc-space-3);
+  z-index: 9999;
+  padding: 0.75rem 1.25rem;
+  background: var(--pc-green-950);
+  color: var(--pc-cream-50);
+  font-family: var(--pc-font-body);
+  font-size: var(--pc-fs-sm);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--pc-radius-full);
+  box-shadow: var(--pc-shadow-lg);
+  transform: translateY(-200%);
+  transition: transform var(--pc-transition);
+
+  &:focus,
+  &:focus-visible {
+    transform: translateY(0);
+    outline: 3px solid var(--pc-green-300);
+    outline-offset: 2px;
+  }
+}
+
+/* Main con foco programático — quitamos outline visual para no “iluminar” el main entero */
+main[tabindex="-1"]:focus {
+  outline: none;
+}
+
+/* ============================================================
+   Accesibilidad — prefers-reduced-motion
+   Desactiva animaciones y transiciones largas cuando el usuario
+   ha pedido reducir movimiento en su sistema operativo.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
