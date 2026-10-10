@@ -1,0 +1,10 @@
+<article class="veterinarian-card">
+  <!-- TODO(design): reemplazar por <img> cuando existan assets reales -->
+  <div class="veterinarian-card__avatar" aria-hidden="true">{{ initials() }}</div>
+  <h3 class="veterinarian-card__name">{{ veterinarian().name }}</h3>
+  <p class="veterinarian-card__title">{{ veterinarian().title }}</p>
+  <p class="veterinarian-card__bio">{{ veterinarian().bio }}</p>
+  @if (veterinarian().yearsExperience) {
+    <p class="veterinarian-card__exp">{{ veterinarian().yearsExperience }} años de experiencia</p>
+  }
+</article>

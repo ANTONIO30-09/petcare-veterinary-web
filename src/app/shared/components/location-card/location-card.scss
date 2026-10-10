@@ -1,0 +1,65 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.location-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 10px 25px rgba(15, 118, 110, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  &__pin {
+    font-size: 1.25rem;
+  }
+
+  &__name {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #0f172a;
+  }
+
+  &__address {
+    margin: 0;
+    color: #4b5563;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  &__meta {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  &__phone {
+    color: #0f766e;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__schedule {
+    margin: 0;
+    color: #6b7280;
+    font-size: 0.85rem;
+  }
+}

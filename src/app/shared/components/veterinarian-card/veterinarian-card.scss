@@ -1,0 +1,68 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.veterinarian-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  text-align: center;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 10px 25px rgba(15, 118, 110, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &__avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.25rem;
+  }
+
+  &__name {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #0f172a;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #0f766e;
+    font-weight: 600;
+  }
+
+  &__bio {
+    margin: 0.25rem 0 0;
+    color: #4b5563;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__exp {
+    margin: 0.5rem 0 0;
+    font-size: 0.8rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+}

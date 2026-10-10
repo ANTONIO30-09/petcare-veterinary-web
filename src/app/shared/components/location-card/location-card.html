@@ -1,0 +1,12 @@
+<article class="location-card">
+  <header class="location-card__header">
+    <span class="location-card__pin" aria-hidden="true">📍</span>
+    <h3 class="location-card__name">{{ location().name }}</h3>
+  </header>
+  <p class="location-card__address">{{ location().address }}</p>
+  <p class="location-card__meta">
+    <a class="location-card__phone" [href]="'tel:' + location().phone">{{ location().phone }}</a>
+  </p>
+  <p class="location-card__schedule">{{ location().schedule }}</p>
+  <!-- TODO(design): integrar mapa embebido con location().map / coordinates -->
+</article>
