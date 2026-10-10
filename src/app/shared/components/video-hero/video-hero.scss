@@ -1,7 +1,7 @@
 :host {
   display: block;
   background: var(--pc-cream-50);
-  padding: 0 var(--pc-space-6) var(--pc-space-16);
+  padding: var(--pc-space-10) var(--pc-space-6);
 }
 
 .video-hero {
@@ -13,7 +13,7 @@
   max-height: 560px;
   overflow: hidden;
   border-radius: var(--pc-radius-xl);
-  background: var(--pc-navy-900);
+  background: var(--pc-green-950);
   box-shadow: var(--pc-shadow-xl);
 
   &__video {
@@ -26,7 +26,7 @@
   &__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(38, 70, 83, 0) 45%, rgba(38, 70, 83, 0.6) 100%);
+    background: linear-gradient(180deg, rgba(10, 31, 20, 0) 45%, rgba(10, 31, 20, 0.6) 100%);
     pointer-events: none;
   }
 
@@ -48,7 +48,7 @@
   }
 
   &--fallback {
-    background: linear-gradient(135deg, var(--pc-coral-400) 0%, var(--pc-honey-500) 100%);
+    background: linear-gradient(135deg, var(--pc-green-400) 0%, var(--pc-green-300) 100%);
   }
 
   &__placeholder {

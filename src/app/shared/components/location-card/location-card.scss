@@ -4,7 +4,7 @@
 }
 
 .location-card {
-  background: var(--pc-peach-100);
+  background: var(--pc-green-100);
   border: 1px solid transparent;
   border-radius: var(--pc-radius-lg);
   padding: var(--pc-space-6);
@@ -17,7 +17,7 @@
   &:hover {
     transform: translateY(-4px);
     box-shadow: var(--pc-shadow-lg);
-    border-color: var(--pc-coral-400);
+    border-color: var(--pc-green-400);
   }
 
   &__header {
@@ -34,14 +34,14 @@
     font-family: var(--pc-font-display);
     font-size: var(--pc-fs-xl);
     font-weight: 700;
-    color: var(--pc-navy-900);
+    color: var(--pc-green-950);
     margin: 0;
     letter-spacing: -0.01em;
   }
 
   &__address {
     margin: 0;
-    color: var(--pc-navy-700);
+    color: var(--pc-green-900);
     font-size: var(--pc-fs-sm);
     line-height: 1.55;
   }
@@ -52,12 +52,12 @@
   }
 
   &__phone {
-    color: var(--pc-coral-500);
+    color: var(--pc-green-500);
     font-weight: 600;
     text-decoration: none;
 
     &:hover {
-      color: var(--pc-coral-600);
+      color: var(--pc-green-700);
       text-decoration: underline;
     }
   }
@@ -65,7 +65,7 @@
   &__schedule {
     margin: 0;
     background: rgba(233, 196, 106, 0.35);
-    color: var(--pc-navy-900);
+    color: var(--pc-green-950);
     padding: var(--pc-space-2) var(--pc-space-3);
     border-radius: var(--pc-radius-sm);
     font-size: var(--pc-fs-xs);

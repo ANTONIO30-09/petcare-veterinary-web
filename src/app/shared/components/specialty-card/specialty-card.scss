@@ -5,7 +5,7 @@
 
 .specialty-card {
   background: #fff;
-  border: 1px solid var(--pc-peach-200);
+  border: 1px solid var(--pc-green-200);
   border-radius: var(--pc-radius-lg);
   padding: var(--pc-space-8) var(--pc-space-6);
   display: flex;
@@ -24,7 +24,7 @@
     width: 4rem;
     height: 4rem;
     border-radius: var(--pc-radius-full);
-    background: linear-gradient(135deg, var(--pc-coral-400) 0%, var(--pc-honey-500) 100%);
+    background: linear-gradient(135deg, var(--pc-green-400) 0%, var(--pc-green-300) 100%);
     color: #fff;
     font-family: var(--pc-font-display);
     font-size: var(--pc-fs-2xl);
@@ -40,13 +40,13 @@
     font-family: var(--pc-font-display);
     font-size: var(--pc-fs-xl);
     font-weight: 700;
-    color: var(--pc-navy-900);
+    color: var(--pc-green-950);
     margin: 0;
   }
 
   &__desc {
     margin: 0;
-    color: var(--pc-navy-700);
+    color: var(--pc-green-900);
     font-size: var(--pc-fs-sm);
     line-height: 1.55;
     flex-grow: 1;

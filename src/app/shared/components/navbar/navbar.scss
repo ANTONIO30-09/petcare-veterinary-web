@@ -8,7 +8,7 @@
   z-index: 100;
   background: rgba(253, 246, 236, 0.92);
   backdrop-filter: saturate(180%) blur(8px);
-  border-bottom: 1px solid var(--pc-peach-200);
+  border-bottom: 1px solid var(--pc-green-200);
   padding: var(--pc-space-4) var(--pc-space-6);
 
   &__inner {
@@ -25,7 +25,7 @@
     align-items: center;
     gap: var(--pc-space-2);
     text-decoration: none;
-    color: var(--pc-navy-900);
+    color: var(--pc-green-950);
     transition: transform var(--pc-transition-fast);
 
     &:hover { transform: translateY(-1px); }
@@ -49,7 +49,7 @@
 
     a {
       position: relative;
-      color: var(--pc-navy-700);
+      color: var(--pc-green-900);
       font-weight: 500;
       font-size: var(--pc-fs-sm);
       padding: var(--pc-space-1) 0;
@@ -62,20 +62,20 @@
         right: 0;
         bottom: -3px;
         height: 2px;
-        background: var(--pc-honey-500);
+        background: var(--pc-green-300);
         transform: scaleX(0);
         transform-origin: center;
         transition: transform var(--pc-transition);
       }
 
       &:hover {
-        color: var(--pc-navy-900);
+        color: var(--pc-green-950);
 
         &::after { transform: scaleX(1); }
       }
 
       &.active {
-        color: var(--pc-coral-500);
+        color: var(--pc-green-500);
         font-weight: 600;
 
         &::after { transform: scaleX(1); }
@@ -86,7 +86,7 @@
   &__cta {
     padding: 0.55rem 1.15rem;
     border-radius: var(--pc-radius-full);
-    background: var(--pc-coral-500);
+    background: var(--pc-green-500);
     color: #fff;
     font-weight: 600;
     font-size: var(--pc-fs-sm);
@@ -95,7 +95,7 @@
     white-space: nowrap;
 
     &:hover {
-      background: var(--pc-coral-600);
+      background: var(--pc-green-700);
       color: #fff;
       transform: translateY(-1px);
       box-shadow: var(--pc-shadow-md);

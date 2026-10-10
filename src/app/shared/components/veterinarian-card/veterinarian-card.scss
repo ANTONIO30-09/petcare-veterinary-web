@@ -5,7 +5,7 @@
 
 .veterinarian-card {
   background: #fff;
-  border: 1px solid var(--pc-peach-200);
+  border: 1px solid var(--pc-green-200);
   border-radius: var(--pc-radius-lg);
   padding: var(--pc-space-8) var(--pc-space-6);
   display: flex;
@@ -24,7 +24,7 @@
     width: 4.5rem;
     height: 4.5rem;
     border-radius: var(--pc-radius-full);
-    background: linear-gradient(135deg, var(--pc-teal-500) 0%, var(--pc-navy-900) 100%);
+    background: linear-gradient(135deg, var(--pc-green-600) 0%, var(--pc-green-950) 100%);
     color: #fff;
     font-family: var(--pc-font-display);
     font-size: var(--pc-fs-2xl);
@@ -40,7 +40,7 @@
     font-family: var(--pc-font-display);
     font-size: var(--pc-fs-lg);
     font-weight: 700;
-    color: var(--pc-navy-900);
+    color: var(--pc-green-950);
     margin: 0;
     letter-spacing: -0.01em;
   }
@@ -48,14 +48,14 @@
   &__title {
     margin: 0;
     font-size: var(--pc-fs-xs);
-    color: var(--pc-coral-500);
+    color: var(--pc-green-500);
     font-weight: 600;
     font-style: italic;
   }
 
   &__bio {
     margin: var(--pc-space-2) 0 0;
-    color: var(--pc-navy-700);
+    color: var(--pc-green-900);
     font-size: var(--pc-fs-sm);
     line-height: 1.55;
     display: -webkit-box;
@@ -68,7 +68,7 @@
   &__exp {
     margin: var(--pc-space-3) 0 0;
     font-size: var(--pc-fs-xs);
-    color: var(--pc-teal-700);
+    color: var(--pc-green-800);
     font-weight: 600;
     letter-spacing: 0.02em;
     text-transform: uppercase;

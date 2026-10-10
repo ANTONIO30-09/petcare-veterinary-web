@@ -1,8 +1,183 @@
 <section class="hero">
+  <!-- Decorative starburst (top-right) -->
+  <div class="hero__starburst" aria-hidden="true">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M 100 0
+           L 115 70 L 185 55 L 135 105 L 200 130
+           L 125 140 L 150 200 L 100 155 L 50 200
+           L 75 140 L 0 130 L 65 105 L 15 55 L 85 70 Z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+
+  <!-- Decorative paw prints (bottom-right) -->
+  <div class="hero__paws-decor" aria-hidden="true">
+    <span>🐾</span>
+    <span>🐾</span>
+    <span>🐾</span>
+  </div>
+
   <div class="hero__inner">
+    <!-- Visual (LEFT) -->
+    <div class="hero__visual" aria-hidden="true">
+      <div class="hero__blob"></div>
+
+      <svg
+        class="hero__dog"
+        viewBox="0 0 240 240"
+        xmlns="http://www.w3.org/2000/svg"
+        role="presentation"
+      >
+        <defs>
+          <radialGradient id="pc-head" cx="42%" cy="32%" r="78%">
+            <stop offset="0%"  stop-color="#FAEDCB"/>
+            <stop offset="60%" stop-color="#EDD5A2"/>
+            <stop offset="100%" stop-color="#D4B275"/>
+          </radialGradient>
+
+          <linearGradient id="pc-ear" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"  stop-color="#8A5530"/>
+            <stop offset="100%" stop-color="#4E2E18"/>
+          </linearGradient>
+
+          <linearGradient id="pc-ear-inner" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%"  stop-color="#B57A50"/>
+            <stop offset="100%" stop-color="#7A4A2C"/>
+          </linearGradient>
+
+          <radialGradient id="pc-muzzle" cx="50%" cy="42%" r="72%">
+            <stop offset="0%"  stop-color="#FFF8E5"/>
+            <stop offset="100%" stop-color="#F0DCB4"/>
+          </radialGradient>
+
+          <radialGradient id="pc-iris" cx="40%" cy="35%" r="82%">
+            <stop offset="0%"  stop-color="#8B5A32"/>
+            <stop offset="55%" stop-color="#5C3418"/>
+            <stop offset="100%" stop-color="#2B1808"/>
+          </radialGradient>
+
+          <radialGradient id="pc-nose" cx="35%" cy="28%" r="85%">
+            <stop offset="0%"  stop-color="#7A4A2C"/>
+            <stop offset="100%" stop-color="#3D2414"/>
+          </radialGradient>
+
+          <radialGradient id="pc-tongue" cx="50%" cy="22%" r="80%">
+            <stop offset="0%"  stop-color="#F6A6A6"/>
+            <stop offset="100%" stop-color="#D65A5A"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Ears (organic teardrops) -->
+        <path
+          d="M 72 68
+             C 28 74, 14 128, 20 172
+             C 24 202, 54 214, 76 194
+             C 90 180, 92 132, 86 88
+             C 84 76, 78 68, 72 68 Z"
+          fill="url(#pc-ear)"
+        />
+        <path
+          d="M 74 82
+             C 40 88, 30 128, 34 164
+             C 36 186, 56 194, 72 182
+             C 82 174, 84 132, 80 94 Z"
+          fill="url(#pc-ear-inner)"
+          opacity="0.55"
+        />
+
+        <path
+          d="M 168 68
+             C 212 74, 226 128, 220 172
+             C 216 202, 186 214, 164 194
+             C 150 180, 148 132, 154 88
+             C 156 76, 162 68, 168 68 Z"
+          fill="url(#pc-ear)"
+        />
+        <path
+          d="M 166 82
+             C 200 88, 210 128, 206 164
+             C 204 186, 184 194, 168 182
+             C 158 174, 156 132, 160 94 Z"
+          fill="url(#pc-ear-inner)"
+          opacity="0.55"
+        />
+
+        <!-- Head -->
+        <circle cx="120" cy="125" r="86" fill="url(#pc-head)"/>
+
+        <!-- Fur tuft -->
+        <path
+          d="M 108 46 Q 114 28 118 41 Q 120 22 124 41 Q 128 28 134 46"
+          fill="none" stroke="#C9A870" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round"
+        />
+
+        <!-- Muzzle -->
+        <ellipse cx="120" cy="168" rx="62" ry="44" fill="url(#pc-muzzle)"/>
+        <ellipse cx="76"  cy="178" rx="22" ry="17" fill="#FFF8E5" opacity="0.55"/>
+        <ellipse cx="164" cy="178" rx="22" ry="17" fill="#FFF8E5" opacity="0.55"/>
+
+        <!-- Eyes -->
+        <ellipse cx="85" cy="115" rx="22" ry="24" fill="#FFFFFF"/>
+        <ellipse cx="85" cy="117" rx="18" ry="20" fill="url(#pc-iris)"/>
+        <ellipse cx="85" cy="120" rx="10" ry="11" fill="#0A0503"/>
+        <circle cx="78" cy="107" r="6.5" fill="#FFFFFF"/>
+        <circle cx="90" cy="124" r="2.6" fill="#FFFFFF" opacity="0.75"/>
+        <circle cx="94" cy="110" r="2" fill="#FFFFFF" opacity="0.55"/>
+
+        <ellipse cx="155" cy="115" rx="22" ry="24" fill="#FFFFFF"/>
+        <ellipse cx="155" cy="117" rx="18" ry="20" fill="url(#pc-iris)"/>
+        <ellipse cx="155" cy="120" rx="10" ry="11" fill="#0A0503"/>
+        <circle cx="148" cy="107" r="6.5" fill="#FFFFFF"/>
+        <circle cx="160" cy="124" r="2.6" fill="#FFFFFF" opacity="0.75"/>
+        <circle cx="164" cy="110" r="2" fill="#FFFFFF" opacity="0.55"/>
+
+        <!-- Eyebrows -->
+        <path d="M 72 82 Q 82 76 92 80"   stroke="#B08558" stroke-width="3"
+              fill="none" stroke-linecap="round"/>
+        <path d="M 148 80 Q 158 76 168 82" stroke="#B08558" stroke-width="3"
+              fill="none" stroke-linecap="round"/>
+
+        <!-- Nose -->
+        <path
+          d="M 120 152
+             Q 108 150 105 158
+             Q 104 165 112 167
+             Q 117 168 120 166
+             Q 123 168 128 167
+             Q 136 165 135 158
+             Q 132 150 120 152 Z"
+          fill="url(#pc-nose)"
+        />
+        <ellipse cx="114" cy="156" rx="4" ry="2.5" fill="#FFFFFF" opacity="0.55"/>
+
+        <!-- Tongue (behind mouth lines) -->
+        <path
+          d="M 113 174 Q 108 198 120 200 Q 132 198 127 174 Z"
+          fill="url(#pc-tongue)"
+        />
+        <line x1="120" y1="180" x2="120" y2="196"
+              stroke="#B84040" stroke-width="1.2" opacity="0.45"/>
+
+        <!-- Mouth (on top of tongue) -->
+        <path d="M 120 162 L 120 170"
+              stroke="#3D2414" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 120 170 Q 108 182 96 176"
+              stroke="#3D2414" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M 120 170 Q 132 182 144 176"
+              stroke="#3D2414" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- Content (RIGHT) -->
     <div class="hero__content">
       <span class="hero__badge">
-        <span aria-hidden="true">🐾</span>
+        <span class="hero__paws" aria-hidden="true">
+          <span class="hero__paw">🐾</span>
+          <span class="hero__paw">🐾</span>
+        </span>
         Cuidado veterinario de confianza
       </span>
 
@@ -24,11 +199,6 @@
           Ver servicios
         </a>
       </div>
-    </div>
-
-    <div class="hero__visual" aria-hidden="true">
-      <div class="hero__blob"></div>
-      <span class="hero__emoji">🐶</span>
     </div>
   </div>
 </section>
