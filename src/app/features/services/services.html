@@ -1,4 +1,64 @@
-<section class="page">
-  <h1>Servicios</h1>
-  <p>Catálogo completo de servicios veterinarios — próximamente.</p>
+<!-- ============ Mini-hero ============ -->
+<header class="page-hero">
+  <div class="page-hero__inner">
+    <a class="page-hero__back" routerLink="/">
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+      Volver al inicio
+    </a>
+
+    <div class="page-hero__heading">
+      <span class="page-hero__kicker">Catálogo</span>
+      <h1 class="page-hero__title">
+        Nuestros servicios <em>veterinarios</em>
+      </h1>
+      <p class="page-hero__subtitle">
+        Todos los servicios que ofrecemos para el cuidado de tu mascota.
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ Contenido ============ -->
+<section class="catalog">
+  <div class="catalog__inner">
+
+    <!-- Toolbar: filtros + contador -->
+    <div class="catalog__toolbar">
+      <div class="filters" role="tablist" aria-label="Filtrar servicios por categoría">
+        @for (cat of categories(); track cat) {
+          <button
+            type="button"
+            class="filters__chip"
+            [class.filters__chip--active]="activeFilter() === cat"
+            (click)="setFilter(cat)"
+            [attr.aria-pressed]="activeFilter() === cat"
+            role="tab"
+          >
+            {{ labelFor(cat) }}
+          </button>
+        }
+      </div>
+
+      <p class="catalog__count">
+        Mostrando <strong>{{ visibleCount() }}</strong> de
+        <strong>{{ totalCount() }}</strong> servicios
+      </p>
+    </div>
+
+    <!-- Grid -->
+    @if (services().length === 0) {
+      <p class="catalog__empty">Cargando servicios…</p>
+    } @else if (filtered().length === 0) {
+      <div class="catalog__no-results">
+        <span class="material-symbols-outlined" aria-hidden="true">search_off</span>
+        <p>No hay servicios en esta categoría.</p>
+      </div>
+    } @else {
+      <div class="catalog__grid">
+        @for (svc of filtered(); track svc.id) {
+          <app-service-card [service]="svc" />
+        }
+      </div>
+    }
+  </div>
 </section>
