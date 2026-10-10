@@ -2,6 +2,15 @@
   <div class="specialty-card__icon" aria-hidden="true">
     <span class="material-symbols-outlined">{{ specialty().icon }}</span>
   </div>
+
   <h3 class="specialty-card__name">{{ specialty().name }}</h3>
   <p class="specialty-card__desc">{{ specialty().description }}</p>
+
+  @if (veterinarianCount() > 0) {
+    <footer class="specialty-card__footer">
+      <span class="material-symbols-outlined" aria-hidden="true">stethoscope</span>
+      {{ veterinarianCount() }}
+      {{ veterinarianCount() === 1 ? 'veterinario' : 'veterinarios' }}
+    </footer>
+  }
 </article>

@@ -1,4 +1,83 @@
-<section class="page">
-  <h1>Especialidades</h1>
-  <p>Especialidades veterinarias disponibles — próximamente.</p>
+<!-- ============ Mini-hero ============ -->
+<header class="page-hero">
+  <div class="page-hero__inner">
+    <a class="page-hero__back" routerLink="/">
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+      Volver al inicio
+    </a>
+
+    <div class="page-hero__heading">
+      <span class="page-hero__kicker">Especialidades</span>
+      <h1 class="page-hero__title">
+        Especialidades <em>veterinarias</em>
+      </h1>
+      <p class="page-hero__subtitle">
+        Un equipo especializado en cada área del cuidado animal.
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ Contenido ============ -->
+<section class="catalog">
+  <div class="catalog__inner">
+
+    <div class="catalog__head">
+      <h2 class="catalog__heading">Áreas de atención</h2>
+      <p class="catalog__count">
+        <strong>{{ totalCount() }}</strong>
+        {{ totalCount() === 1 ? 'área' : 'áreas' }} disponibles
+      </p>
+    </div>
+
+    @if (specialties().length === 0) {
+      <p class="catalog__empty">Cargando especialidades…</p>
+    } @else {
+      <ul class="spec-list">
+        @for (spec of specialties(); track spec.id; let i = $index) {
+          <li class="spec-row">
+            <span class="spec-row__number" aria-hidden="true">
+              {{ (i + 1).toString().padStart(2, '0') }}
+            </span>
+
+            <span class="spec-row__icon" aria-hidden="true">
+              <span class="material-symbols-outlined">{{ spec.icon }}</span>
+            </span>
+
+            <div class="spec-row__body">
+              <h3 class="spec-row__name">{{ spec.name }}</h3>
+              <p class="spec-row__desc">{{ spec.description }}</p>
+            </div>
+
+            <div class="spec-row__meta">
+              <span class="spec-row__count">
+                <span class="material-symbols-outlined" aria-hidden="true">stethoscope</span>
+                {{ spec.veterinarianIds.length }}
+                {{ spec.veterinarianIds.length === 1 ? 'vet' : 'vets' }}
+              </span>
+              <span class="spec-row__arrow material-symbols-outlined" aria-hidden="true">
+                arrow_forward
+              </span>
+            </div>
+          </li>
+        }
+      </ul>
+    }
+
+    <!-- CTA -->
+    <aside class="cta-panel">
+      <div class="cta-panel__text">
+        <span class="cta-panel__kicker">Nuestro equipo</span>
+        <h2 class="cta-panel__title">Conoce a los especialistas</h2>
+        <p class="cta-panel__desc">
+          Detrás de cada especialidad hay profesionales dedicados al bienestar de tu mascota.
+        </p>
+      </div>
+      <a class="cta-panel__btn" routerLink="/nosotros">
+        Ver veterinarios
+        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+      </a>
+    </aside>
+
+  </div>
 </section>
