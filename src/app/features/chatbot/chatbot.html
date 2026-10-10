@@ -1,4 +1,136 @@
-<section class="page">
-  <h1>Chatbot</h1>
-  <p>Vista completa del asistente virtual — próximamente.</p>
+<!-- ============ Mini-hero ============ -->
+<header class="page-hero">
+  <div class="page-hero__inner">
+    <a class="page-hero__back" routerLink="/">
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+      Volver al inicio
+    </a>
+
+    <div class="page-hero__heading">
+      <span class="page-hero__kicker">Asistente virtual</span>
+      <h1 class="page-hero__title">
+        Habla con <em>PetBot</em>
+      </h1>
+      <p class="page-hero__subtitle">
+        Nuestro asistente puede ayudarte con horarios, precios, ubicaciones y más.
+      </p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ Contenido ============ -->
+<section class="chat-page">
+  <div class="chat-page__inner">
+
+    <!-- ========== Panel de chat ========== -->
+    <div class="chat-panel">
+      <header class="chat-panel__head">
+        <div class="chat-panel__bot">
+          <span class="chat-panel__bot-avatar" aria-hidden="true">🐾</span>
+          <div class="chat-panel__bot-info">
+            <span class="chat-panel__bot-name">PetBot</span>
+            <span class="chat-panel__bot-status">
+              <span class="chat-panel__dot" aria-hidden="true"></span>
+              En línea
+            </span>
+          </div>
+        </div>
+        <button type="button" class="chat-panel__reset" (click)="clearChat()" aria-label="Reiniciar chat">
+          <span class="material-symbols-outlined" aria-hidden="true">restart_alt</span>
+        </button>
+      </header>
+
+      <div #messageList class="chat-panel__messages">
+        @for (msg of messages(); track msg.id) {
+          <div
+            class="bubble"
+            [class.bubble--user]="msg.from === 'user'"
+            [class.bubble--bot]="msg.from === 'bot'"
+          >
+            @if (msg.from === 'bot') {
+              <span class="bubble__avatar" aria-hidden="true">🐾</span>
+            }
+            <div class="bubble__content">
+              <p class="bubble__text">{{ msg.text }}</p>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="chat-panel__input">
+        <input
+          #inputEl
+          type="text"
+          class="chat-panel__field"
+          placeholder="Escribe tu mensaje…"
+          aria-label="Mensaje para PetBot"
+          (keydown)="onKeydown($event, inputEl)"
+        />
+        <button
+          type="button"
+          class="chat-panel__send"
+          aria-label="Enviar mensaje"
+          (click)="send(inputEl)"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">send</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ========== Sidebar ========== -->
+    <aside class="sidebar">
+
+      <!-- Preguntas rápidas -->
+      <div class="side-card">
+        <span class="side-card__kicker">Preguntas rápidas</span>
+        <h2 class="side-card__title">Empieza por aquí</h2>
+        <div class="quick-grid">
+          @for (q of quickQuestions; track q.query) {
+            <button
+              type="button"
+              class="quick-chip"
+              (click)="sendSuggestion(q.query)"
+            >
+              <span class="material-symbols-outlined" aria-hidden="true">{{ q.icon }}</span>
+              <span>{{ q.label }}</span>
+            </button>
+          }
+        </div>
+      </div>
+
+      <!-- Temas -->
+      <div class="side-card">
+        <span class="side-card__kicker">Puedo ayudarte con</span>
+        <h2 class="side-card__title">Temas frecuentes</h2>
+        <ul class="topic-list">
+          @for (t of topics; track t.title) {
+            <li class="topic-list__item">
+              <span class="topic-list__icon material-symbols-outlined" aria-hidden="true">
+                {{ t.icon }}
+              </span>
+              <div>
+                <span class="topic-list__title">{{ t.title }}</span>
+                <span class="topic-list__desc">{{ t.desc }}</span>
+              </div>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <!-- Contacto humano -->
+      <div class="side-card side-card--cta">
+        <span class="side-card__kicker">¿Necesitas más?</span>
+        <h2 class="side-card__title">Habla con una persona</h2>
+        <p class="side-card__text">
+          Nuestro equipo puede atenderte de forma personalizada.
+        </p>
+        <a class="side-card__btn" routerLink="/contacto">
+          Ir a contacto
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+        </a>
+      </div>
+
+    </aside>
+
+  </div>
 </section>
