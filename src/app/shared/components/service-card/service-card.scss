@@ -1,0 +1,44 @@
+:host {
+  display: block;
+}
+
+.service-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 10px 25px rgba(15, 118, 110, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &__icon {
+    font-size: 1.75rem;
+  }
+
+  &__name {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #0f172a;
+  }
+
+  &__desc {
+    margin: 0;
+    color: #4b5563;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+
+  &__meta {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+    color: #0f766e;
+  }
+}
