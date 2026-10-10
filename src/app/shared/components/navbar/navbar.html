@@ -5,6 +5,7 @@
       <span class="navbar__brand-text">PetCare</span>
     </a>
 
+    <!-- Desktop nav -->
     <nav class="navbar__links" aria-label="Navegación principal">
       <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
       <a routerLink="/servicios" routerLinkActive="active">Servicios</a>
@@ -15,6 +16,7 @@
       <a routerLink="/contacto" routerLinkActive="active">Contacto</a>
     </nav>
 
+    <!-- Actions (chatbot + cta + hamburger) -->
     <div class="navbar__actions">
       <a
         class="navbar__icon-link"
@@ -26,6 +28,106 @@
         <span class="material-symbols-outlined">forum</span>
       </a>
       <a class="navbar__cta" routerLink="/contacto">Agendar cita</a>
+
+      <button
+        type="button"
+        class="navbar__hamburger"
+        [attr.aria-expanded]="mobileOpen()"
+        aria-controls="mobile-drawer"
+        [attr.aria-label]="mobileOpen() ? 'Cerrar menú' : 'Abrir menú'"
+        (click)="toggleMobile()"
+      >
+        <span class="material-symbols-outlined" aria-hidden="true">
+          {{ mobileOpen() ? 'close' : 'menu' }}
+        </span>
+      </button>
     </div>
   </div>
+
+  <!-- Mobile overlay -->
+  <div
+    class="navbar__overlay"
+    [class.navbar__overlay--open]="mobileOpen()"
+    (click)="closeMobile()"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Mobile drawer -->
+  <nav
+    id="mobile-drawer"
+    class="navbar__drawer"
+    [class.navbar__drawer--open]="mobileOpen()"
+    aria-label="Navegación móvil"
+    [attr.aria-hidden]="!mobileOpen()"
+  >
+    <div class="navbar__drawer-head">
+      <span class="navbar__drawer-brand">🐾 PetCare</span>
+      <button
+        type="button"
+        class="navbar__drawer-close"
+        aria-label="Cerrar menú"
+        (click)="closeMobile()"
+      >
+        <span class="material-symbols-outlined" aria-hidden="true">close</span>
+      </button>
+    </div>
+
+    <ul class="navbar__drawer-list">
+      <li>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobile()">
+          <span class="material-symbols-outlined" aria-hidden="true">home</span>
+          Inicio
+        </a>
+      </li>
+      <li>
+        <a routerLink="/servicios" routerLinkActive="active" (click)="closeMobile()">
+          <span class="material-symbols-outlined" aria-hidden="true">medical_services</span>
+          Servicios
+        </a>
+      </li>
+      <li>
+        <a routerLink="/especialidades" routerLinkActive="active" (click)="closeMobile()">
+          <span class="material-symbols-outlined" aria-hidden="true">school</span>
+          Especialidades
+        </a>
+      </li>
+      <li>
+        <a routerLink="/ubicaciones" routerLinkActive="active" (click)="closeMobile()">
+          <span class="material-symbols-outlined" aria-hidden="true">location_on</span>
+          Ubicaciones
+        </a>
+      </li>
+      <li>
+        <a routerLink="/precios" routerLinkActive="active" (click)="closeMobile()">
+          <span class="material-symbols-outlined" aria-hidden="true">attach_money</span>
+          Precios
+        </a>
+      </li>
+      <li>
+        <a routerLink="/nosotros" routerLinkActive="active" (click)="closeMobile()">
+          <span class="material-symbols-outlined" aria-hidden="true">groups</span>
+          Nosotros
+        </a>
+      </li>
+      <li>
+        <a routerLink="/contacto" routerLinkActive="active" (click)="closeMobile()">
+          <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+          Contacto
+        </a>
+      </li>
+      <li>
+        <a routerLink="/chatbot" routerLinkActive="active" (click)="closeMobile()">
+          <span class="material-symbols-outlined" aria-hidden="true">forum</span>
+          Asistente virtual
+        </a>
+      </li>
+    </ul>
+
+    <div class="navbar__drawer-cta">
+      <a routerLink="/contacto" class="navbar__drawer-btn" (click)="closeMobile()">
+        Agendar cita
+        <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+      </a>
+    </div>
+  </nav>
 </header>
