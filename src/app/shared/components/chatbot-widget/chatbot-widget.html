@@ -1,0 +1,56 @@
+<button
+  type="button"
+  class="chatbot-toggle"
+  [attr.aria-expanded]="open()"
+  aria-label="Abrir o cerrar el chat de PetCare"
+  (click)="toggle()"
+>
+  @if (open()) { ✕ } @else { 💬 }
+</button>
+
+@if (open()) {
+  <section class="chatbot-panel" role="dialog" aria-label="Chat de PetCare">
+    <header class="chatbot-panel__header">
+      <span class="chatbot-panel__title">PetBot 🐾</span>
+      <button
+        type="button"
+        class="chatbot-panel__close"
+        aria-label="Cerrar chat"
+        (click)="toggle()"
+      >
+        ✕
+      </button>
+    </header>
+
+    <div #messageList class="chatbot-panel__messages">
+      @for (msg of messages(); track msg.id) {
+        <div
+          class="chatbot-panel__message"
+          [class.chatbot-panel__message--user]="msg.from === 'user'"
+          [class.chatbot-panel__message--bot]="msg.from === 'bot'"
+        >
+          {{ msg.text }}
+        </div>
+      }
+    </div>
+
+    <div class="chatbot-panel__input">
+      <input
+        #inputEl
+        type="text"
+        class="chatbot-panel__field"
+        placeholder="Escribe tu mensaje…"
+        aria-label="Mensaje"
+        (keydown)="onKeydown($event, inputEl)"
+      />
+      <button
+        type="button"
+        class="chatbot-panel__send"
+        aria-label="Enviar mensaje"
+        (click)="send(inputEl)"
+      >
+        ➤
+      </button>
+    </div>
+  </section>
+}
